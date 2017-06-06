@@ -8,10 +8,6 @@
 </head>
 <body>
 <h1>ほんとひで</h1>
-<<<<<<< HEAD
-=======
 
-
->>>>>>> branch 'master' of https://github.com/aso1501144/zemihide
 </body>
 </html>
