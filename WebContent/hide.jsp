@@ -9,5 +9,7 @@
 <body>
 <h1>ほんとひで</h1>
 
+<form action="gamen"><input type="submit" value="ユーザー"></form>
+<form action="gamen" method="post"><input type="submit" value="管理者"></form>
 </body>
 </html>
