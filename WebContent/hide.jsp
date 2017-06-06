@@ -4,9 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>よ　う　こ　そ</title>
 </head>
 <body>
 <h1>ほんとひで</h1>
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> branch 'master' of https://github.com/aso1501144/zemihide
 </body>
 </html>
