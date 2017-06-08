@@ -8,7 +8,7 @@
 </head>
 <body>
 ゆーざー
-	<form action="<%= request.getContextPath() %>/userEntry" method="POST">
+	<form action="<%= request.getContextPath() %>/userlogin" method="POST">
 		<table>
 			<tr>
 				<td>ユーザID:</td>
