@@ -42,7 +42,7 @@ public class gamen extends HttpServlet {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
 
-		RequestDispatcher dis = request.getRequestDispatcher("/WEB-INF/jsp/hideLogin.jsp");
+		RequestDispatcher dis = request.getRequestDispatcher("/WEB-INF/jsp/managerLogin.jsp");
 		dis.forward(request, response);
 	}
 
