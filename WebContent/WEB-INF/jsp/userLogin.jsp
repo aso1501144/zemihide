@@ -8,5 +8,18 @@
 </head>
 <body>
 ゆーざー
+	<form action="<%= request.getContextPath() %>/userEntry" method="POST">
+		<table>
+			<tr>
+				<td>ユーザID:</td>
+				<td><input type="text" name="userid"></td>
+			</tr>
+			<tr>
+				<td>パスワード:</td>
+				<td><input type="password" name="password"></td>
+			</tr>
+		</table>
+		<input type="submit" value="ログイン">
+	</form>
 </body>
 </html>
