@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -44,18 +45,23 @@ public class userlogin extends HttpServlet {
 		String path; //分岐先のファイル名
 		HttpSession session = request.getSession();
 		//ユーザーID、パスワードの取り出し
-				int userid = Integer.parseInt(request.getParameter("userid"));
-				String password = request.getParameter("password");
-				UserDAO memberDAO = new UserDAO();
-				UserBean member = new UserBean();
+				int s_id = Integer.parseInt(request.getParameter("s_id"));
+				//String s_name = request.getParameter("s_name");
+				String pass = request.getParameter("pass");
+				//int c_id = Integer.parseInt(request.getParameter("c_id"));
+				UserDAO userDAO = new UserDAO();
+				UserBean user = new UserBean();
+				UserBean userBean = new UserBean();
+				ArrayList<UserBean> list = new ArrayList<UserBean>();
+				UserDAO UserDAO = new UserDAO();
 				//IDとパスワードを使ってログインユーザー情報を受け取る
-				member = memberDAO.getUser( userid, password);
+				user = userDAO.getData( s_id, pass);
 
-				if(member != null){
+				if(user != null){
 					System.out.println("ログイン成功");
 					//会員情報をセッションに格納
-					session.setAttribute("CommonLoginMember", member);
-					userBean = userDAO.getData(userid);
+					session.setAttribute("CommonLoginMember", user);
+					userBean = userDAO.getData(s_id, pass);
 					session.setAttribute("list", userBean);
 
 					path = "WEB-INF/jsp/userEntry.jsp";
@@ -63,7 +69,7 @@ public class userlogin extends HttpServlet {
 				}else{
 					System.out.println("ログイン失敗");
 					request.setAttribute("errorMassage", "会員IDまたはパスワードが違います。");
-					path = "WEB-INF/jsp/login.jsp";
+					path = "WEB-INF/jsp/userLogin.jsp";
 				}
 
 				RequestDispatcher rd = request.getRequestDispatcher(path);
