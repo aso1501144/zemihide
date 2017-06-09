@@ -10,19 +10,20 @@
 </head>
 <body>
 <h2>申込み科目一覧</h2>
-<a href="logout">ログアウト</a>
-	<form action="<%= request.getContextPath() %>/userEntry" method="POST">
+<a href="logout" >ログアウト</a>
+
 		<table border="1">
 			<tr>
 				<th>科目名</th>
 				<th>科目分類名</th>
+				<td></td>
 			</tr>
 			<tr>
-				<td>パスワード:</td>
-				<td><input type="password" name="password"></td>
+				<td></td>
+				<td></td>
+
 			</tr>
 		</table>
 		<input type="submit" value="ログイン">
-	</form>
 </body>
 </html>
