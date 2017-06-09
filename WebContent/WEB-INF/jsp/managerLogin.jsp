@@ -8,7 +8,7 @@
 <title>管理者用ログイン</title>
 </head>
 <body>
-かんりしゃ
+	<h2>ログイン（管理者）</h2>
 	<form action="<%= request.getContextPath() %>/managerEntry" method="POST">
 		<table>
 			<tr>
