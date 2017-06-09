@@ -6,24 +6,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>申込み一覧</title>
+<title>ユーザー用ログイン</title>
 </head>
 <body>
-<h2>申込み科目一覧</h2>
-<a href="logout" >ログアウト</a>
-
-		<table border="1">
+<h2>ログイン（ユーザー）</h2>
+	<form action="<%= request.getContextPath() %>/userEntry" method="POST">
+		<table>
 			<tr>
-				<th>科目名</th>
-				<th>科目分類名</th>
-				<td></td>
+				<td>学生ID:</td>
+				<td><input type="text" name="userid"></td>
 			</tr>
 			<tr>
-				<td></td>
-				<td></td>
-
+				<td>パスワード:</td>
+				<td><input type="password" name="password"></td>
 			</tr>
 		</table>
 		<input type="submit" value="ログイン">
+	</form>
 </body>
 </html>
