@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -51,9 +50,9 @@ public class userlogin extends HttpServlet {
 				//int c_id = Integer.parseInt(request.getParameter("c_id"));
 				UserDAO userDAO = new UserDAO();
 				UserBean user = new UserBean();
-				UserBean userBean = new UserBean();
-				ArrayList<UserBean> list = new ArrayList<UserBean>();
-				UserDAO UserDAO = new UserDAO();
+				//UserBean userBean = new UserBean();
+				//ArrayList<UserBean> list = new ArrayList<UserBean>();
+				//UserDAO UserDAO = new UserDAO();
 				//IDとパスワードを使ってログインユーザー情報を受け取る
 				user = userDAO.getData( s_id, pass);
 
@@ -61,8 +60,8 @@ public class userlogin extends HttpServlet {
 					System.out.println("ログイン成功");
 					//会員情報をセッションに格納
 					session.setAttribute("CommonLoginMember", user);
-					userBean = userDAO.getData(s_id, pass);
-					session.setAttribute("list", userBean);
+					//userBean = userDAO.getData(s_id, pass);
+					//session.setAttribute("list", userBean);
 
 					path = "WEB-INF/jsp/userEntry.jsp";
 

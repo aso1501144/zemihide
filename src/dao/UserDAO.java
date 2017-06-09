@@ -93,7 +93,6 @@ public class UserDAO {
 			String sql = "SELECT * FROM student WHERE s_id=? AND pass=?";
 			stmt = con.prepareStatement(sql);
 			stmt.setInt(1, s_id);
-
 			stmt.setString(2, pass);
 			//stmt.setInt(4, c_id);
 			rs = stmt.executeQuery();
