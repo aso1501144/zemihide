@@ -1,5 +1,4 @@
 <Context>
-
 	<Resource auth="Container"
 			driverClassName="com.mysql.jdbc.Driver"
 			maxActive="20" maxIdle="10" maxWait="-1"
@@ -9,5 +8,4 @@
 			username="jsb05"
 			password="jsb05"
 	/>
-
 </Context>
