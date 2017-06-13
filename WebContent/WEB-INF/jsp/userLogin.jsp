@@ -6,24 +6,25 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="/zemihide/js/javascript.js"></script>
 <title>ユーザー用ログイン</title>
 </head>
 <body>
 ゆーざー
-	<form action="<%= request.getContextPath() %>/userlogin" method="POST">
+	<form action="<%= request.getContextPath() %>/userlogin" method="POST" onsubmit="return check(this)">
 <h2>ログイン（ユーザー）</h2>
 
 		<table>
 			<tr>
 				<td>学生ID:</td>
-				<td><input type="text" name="s_id"></td>
+				<td><input type="text" name="s_id" style="ime-mode:disabled"></td>
 			</tr>
 			<tr>
 				<td>パスワード:</td>
 				<td><input type="password" name="pass"></td>
 			</tr>
 		</table>
-		<input type="submit" value="ログイン">
+		<input type="submit" value="ログイン" onclick="check()">
 	</form>
 </body>
 </html>
