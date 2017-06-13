@@ -81,7 +81,7 @@ public class userlogin extends HttpServlet {
 			// userBean = userDAO.getData(s_id, pass);
 			// session.setAttribute("list", userBean);
 
-			path = "WEB-INF/jsp/entry.jsp";
+			path = "WEB-INF/jsp/list.jsp";
 
 		} else {
 			System.out.println("ログイン失敗");

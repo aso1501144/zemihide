@@ -12,18 +12,6 @@
 <h2>申込み科目一覧</h2>
 <a href="logout" >ログアウト</a>
 
-		<table border="1">
-			<tr>
-				<th>科目名</th>
-				<th>科目分類名</th>
-				<td></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-
-			</tr>
-		</table>
-		<input type="submit" value="ログイン">
+		<a href="U103mousikomi">申し込み</a>
 </body>
 </html>
