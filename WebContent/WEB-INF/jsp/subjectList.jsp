@@ -9,7 +9,29 @@
 <title>科目一覧</title>
 </head>
 <body>
+<h2>科目一覧</h2>
 <a href="logout" >ログアウト</a>
+
+<form name = "form_serchList" method ="post" action ="servlet" > 
+科目検索 
+<br> 
+<input type = "text" name = "serchWord"> 
+<input type = "hidden" name = "serch" value = "serch"> 
+<input type="submit" value="検索"> 
+</form> 
+
+<form method="GET" action="サーブレット名">
+  <select name="grade">
+    <option value="1">1</option>
+  </select>
+  <br>
+  <select name="openDuring">
+    <option value="1">1</option>
+    <option value="2">2</option>
+  </select>
+  <br>
+  <input type="submit' value="送信">
+</form>
 
 		<table border="1">
 			<tr>
