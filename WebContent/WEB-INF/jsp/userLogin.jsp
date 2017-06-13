@@ -9,16 +9,18 @@
 <title>ユーザー用ログイン</title>
 </head>
 <body>
+ゆーざー
+	<form action="<%= request.getContextPath() %>/userlogin" method="POST">
 <h2>ログイン（ユーザー）</h2>
-	<form action="<%= request.getContextPath() %>/userEntry" method="POST">
+
 		<table>
 			<tr>
 				<td>学生ID:</td>
-				<td><input type="text" name="userid"></td>
+				<td><input type="text" name="s_id"></td>
 			</tr>
 			<tr>
 				<td>パスワード:</td>
-				<td><input type="password" name="password"></td>
+				<td><input type="password" name="pass"></td>
 			</tr>
 		</table>
 		<input type="submit" value="ログイン">
