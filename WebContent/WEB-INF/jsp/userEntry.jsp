@@ -6,14 +6,23 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-<title>申込み一覧</title>
-<title>ユーザー用ログイン</title>
+<link href="css/hover.css" rel="stylesheet">
+<title>科目申込み</title>
 </head>
 <body>
 
 <h2>科目申し込み</h2>
-<a href="logout" >ログアウト</a>
+<a href="logout" class="logout">ログアウト</a>
+<form action="">
+検索<input type="text">
+
+ジャンル選択
+<select name="genre">
+<option value="english">英語</option>
+<option value="it">IT</option>
+<option value="com">コミュニケーション</option>
+</select>
+</form>
 
 <c:forEach var="data" items="${sessionScope.subject}"
 						varStatus="status">
@@ -24,5 +33,8 @@
 						</tr>
 					</c:forEach>
 
+<form>
+<input type="button" onClick='history.back();' value="戻る">
+</form>
 </body>
 </html>

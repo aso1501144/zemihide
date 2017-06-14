@@ -9,19 +9,6 @@
 <title>科目別学生一覧画面</title>
 </head>
 <body>
-<h2>ログイン（ユーザー）</h2>
-	<form action="<%= request.getContextPath() %>/userEntry" method="POST">
-		<table>
-			<tr>
-				<td>学生ID:</td>
-				<td><input type="text" name="userid"></td>
-			</tr>
-			<tr>
-				<td>パスワード:</td>
-				<td><input type="password" name="password"></td>
-			</tr>
-		</table>
-		<input type="submit" value="ログイン">
-	</form>
+<h2>科目学生一覧</h2>
 </body>
 </html>

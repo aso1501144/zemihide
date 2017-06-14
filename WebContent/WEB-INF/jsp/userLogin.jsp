@@ -5,12 +5,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link href="css/hover.css" rel="stylesheet" media="all">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript" src="/zemihide/js/javascript.js"></script>
 <title>ユーザー用ログイン</title>
 </head>
 <body>
-ゆーざー
+
 	<form action="<%= request.getContextPath() %>/userlogin" method="POST" onsubmit="return check(this)">
 <h2>ログイン（ユーザー）</h2>
 
@@ -24,7 +25,7 @@
 				<td><input type="password" name="pass"></td>
 			</tr>
 		</table>
-		<input type="submit" value="ログイン" onclick="check()">
+		<input type="submit" value="ログイン" onclick="check()" class="hvr-float">
 	</form>
 </body>
 </html>
