@@ -6,14 +6,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<link href="css/hover.css" rel="stylesheet">
 <title>申込み一覧</title>
-<title>ユーザー用ログイン</title>
 </head>
 <body>
 
 <h2>科目申し込み</h2>
-<a href="logout" >ログアウト</a>
+<a href="logout" class="logout">ログアウト</a>
 
 <c:forEach var="data" items="${sessionScope.subject}"
 						varStatus="status">
