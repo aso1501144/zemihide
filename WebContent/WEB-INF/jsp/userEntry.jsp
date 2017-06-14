@@ -23,5 +23,8 @@
 						</tr>
 					</c:forEach>
 
+<form>
+<input type="button" onClick='history.back();' value="戻る">
+</form>
 </body>
 </html>
