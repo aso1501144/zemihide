@@ -7,20 +7,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="css/hover.css" rel="stylesheet">
+<script type="text/javascript" src="/zemihide/js/javascript.js"></script>
 <title>科目申込み</title>
 </head>
 <body>
 
 <h2>科目申し込み</h2>
 <a href="logout" class="logout">ログアウト</a>
-<form action="">
-
-<select name="genre">
-<option value="">
-<option value="english">英語</option>
-<option value="it">IT</option>
-<option value="com">コミュニケーション</option>
-</select>
+<form name="test">
+	<select name="genre" onChange="genreselect()">
+		<option value="">ジャンル選択</option>
+		<option value="english">英語</option>
+		<option value="it">IT</option>
+		<option value="com">コミュニケーション</option>
+	</select>
 </form>
 
 <c:forEach var="data" items="${sessionScope.subject}"
