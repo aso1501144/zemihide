@@ -6,24 +6,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>申込み一覧</title>
+<title>削除確認画面</title>
 </head>
 <body>
-<h2>申込み科目一覧</h2>
-<a href="logout" >ログアウト</a>
+<h2>削除確認</h2>
+<form action="U103mousikomi" method="get">
+<p style="padding-left:2em">
+	<c:out value="${data.sub_name}" />を削除します。
+</p>
+<input type="button" onClick='history.back();' value="戻る" style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
 
-		<table border="1">
-			<tr>
-				<th>科目名</th>
-				<th>科目分類名</th>
-				<td></td>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-		</table>
-		<input type="submit" value="ログイン">
+<input type="submit" value=削除（科目申込一覧に戻る）/>
+</form>
 </body>
 </html>
