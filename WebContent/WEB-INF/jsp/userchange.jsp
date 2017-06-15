@@ -12,7 +12,7 @@
 <body>
 <h2>申し込み科目変更</h2>
 <p style="padding-left:2em">
-選択中の科目名：<c:out value="${data.sub_name}" />
+選択中の科目名：<c:out value="${sub}" />
 <br><br>
 <a href="U103mousikomi">◯科目を変更する（科目申込画面へ）</a>
 <br><br>

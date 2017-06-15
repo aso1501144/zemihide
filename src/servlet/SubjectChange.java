@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.SubjectDAO;
+
 /**
  * Servlet implementation class ChangeSubject
  */
@@ -21,16 +23,21 @@ public class SubjectChange extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		HttpSession session = request.getSession();
 		// ユーザーID、パスワードの取り出し
 
 		String get =  request.getParameter("sub_id");
-		
-		session.setAttribute("sub", get);
-		
+		System.out.println(get);
+
+		SubjectDAO subject= new SubjectDAO();
+		String name = subject.subname(get);
+		System.out.println(name);
+
+		session.setAttribute("sub", name);
+
 		//科目名を受け取るやつここに書く
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/subjectChange.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/userchange.jsp");
 		rd.forward(request, response);
 	}
 

@@ -5,11 +5,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="/zemihide/js/javascript.js"></script>
 <title>管理者用ログイン</title>
 </head>
 <body>
 	<h2>ログイン（管理者）</h2>
-	<form action="<%= request.getContextPath() %>/managerEntry" method="POST">
+	<form action="<%= request.getContextPath() %>/managerEntry" method="POST"  onsubmit="return check(this)">
 		<table>
 			<tr>
 				<td>教師ID:</td>
