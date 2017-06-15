@@ -13,37 +13,25 @@
 <h2>科目一覧</h2>
 <a href="logout" >ログアウト</a>
 
-<form name = "form_serchList" method ="post" action ="servlet" > 
-科目検索 
-<br> 
-<input type = "text" name = "serchWord"> 
-<input type = "hidden" name = "serch" value = "serch"> 
-<input type="submit" value="検索"> 
-</form> 
 
 <form method="GET" action="サーブレット名">
   <select name="grade">
-    <option value="1">1</option>
-  </select>
-  <br>
-  <select name="openDuring">
-    <option value="1">1</option>
-    <option value="2">2</option>
-  </select>
-  <br>
-  <input type="submit' value="送信">
+    <option value="1">IT</option>
+  	<option value="2">英語</option>
+  	<option value="3">コミュニケーション</option>		
+    </select>
 </form>
 
 		<table border="1">
 			<tr>
 				<th>科目名</th>
 				<th>科目分類名</th>
-				<td></td>
+				<th></th>
 			</tr>
 			<tr>
 				<td></td>
 				<td></td>
-
+				<td></td>
 			</tr>
 		</table>
 =======

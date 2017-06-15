@@ -12,7 +12,7 @@
 <h2>科目変更</h2>
 選択中の科目：(科目名表示)
 
-○<a href="SubjectChange">科目を変更する(科目変更画面へ)</a>
+○<a href="SubjectRegistration">科目を変更する(科目変更画面へ)</a>
 
 ○<a href="SubjectDelete">科目を削除する(科目削除画面へ)</a>
 
