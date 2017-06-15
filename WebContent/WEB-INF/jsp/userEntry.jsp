@@ -14,10 +14,9 @@
 <h2>科目申し込み</h2>
 <a href="logout" class="logout">ログアウト</a>
 <form action="">
-検索<input type="text"><br>
 
-ジャンル選択
 <select name="genre">
+<option value="">
 <option value="english">英語</option>
 <option value="it">IT</option>
 <option value="com">コミュニケーション</option>
@@ -33,8 +32,7 @@
 						</tr>
 					</c:forEach>
 
-<form>
+
 <input type="button" onClick='history.back();' value="戻る">
-</form>
 </body>
 </html>
