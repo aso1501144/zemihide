@@ -42,23 +42,24 @@ public class EntryDAO {
 			}
 		}
 		//▼▼データ登録▼▼
-		public ArrayList<EntryBean> getData(String id) {
+		public ArrayList<EntryBean> getData(int id) {
 			//▼▼List（大きさが決まっていない配列のようなもの）、メッセージ格納用変数 準備
 				ArrayList<EntryBean> list = new ArrayList<EntryBean>();
 				try {
 					// DB接続
 					connection();
 					// SQL文設定の準備・SQL文の実行
-					String sql = "SELECT * FROM student これ以上わかりません";
+					String sql = "SELECT sub1.sub_name,sub2.sub_name AS sub_name2 FROM app a LEFT OUTER JOIN subject sub1 ON a.sub_id = sub1.sub_id LEFT OUTER JOIN subject sub2 ON a.sub_id2 = sub2.sub_id WHERE a.s_id = ?";
 					stmt = con.prepareStatement(sql); // sql文をプリコンパイルした状態で保持
+					stmt.setInt(1, id);
 					rs = stmt.executeQuery(); // sql文を実行
 					while (rs.next()) {
 						// 1つ分のデータをBeanに格納し、それをListに入れてjspに渡す
 						// (Listには全員分のデータが入っている)
 						EntryBean st = new EntryBean();
-						st.setSub_id(rs.getInt("sub_id"));
-						st.setSub_name(rs.getString("sub_name"));
-						st.setSc_id(rs.getInt("sc_id"));
+						//st.setS_id(rs.getInt("s_id"));
+						st.setSub_id(rs.getString("sub_name"));
+						st.setSub_id2(rs.getString("sub_name2"));
 
 						list.add(st);
 						//kikik

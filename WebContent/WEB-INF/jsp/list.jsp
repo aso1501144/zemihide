@@ -13,5 +13,16 @@
 <a href="logout" >ログアウト</a>
 
 		<a href="U103mousikomi">申し込み</a>
+
+		<c:forEach var="data" items="${sessionScope.entry}"
+						varStatus="status">
+						<tr>
+							<td><c:out value="${data.s_id}" /></td>
+							<td><c:out value="${data.sub_id}" /></td>
+							<td><c:out value="${data.sub_id2}" /></td>
+						</tr>
+					</c:forEach>
+
+
 </body>
 </html>

@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.EntryDAO;
 import dao.UserDAO;
+import model.EntryBean;
 import model.UserBean;
 
 /**
@@ -54,7 +57,7 @@ public class userlogin extends HttpServlet {
 		if(number(get)){
 			s_id = Integer.parseInt(get);
 		}else{
-			System.out.println("ログイン失敗");
+			System.out.println("ログイン失敗あああ");
 			RequestDispatcher dis2 = request.getRequestDispatcher("WEB-INF/jsp/userLogin.jsp");
 			dis2.forward(request, response);
 			return;
@@ -80,6 +83,12 @@ public class userlogin extends HttpServlet {
 			session.setAttribute("CommonLoginMember", user);
 			// userBean = userDAO.getData(s_id, pass);
 			// session.setAttribute("list", userBean);
+
+			EntryDAO entry = new EntryDAO();
+			ArrayList<EntryBean> entryList = new ArrayList<EntryBean>();
+			entryList = entry.getData(s_id);
+
+			session.setAttribute("entry", entryList);
 
 			path = "WEB-INF/jsp/list.jsp";
 
