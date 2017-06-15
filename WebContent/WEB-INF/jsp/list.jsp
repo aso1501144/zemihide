@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/jsp/common.jsp" %>
+	pageEncoding="UTF-8"%>
+<%@ include file="/WEB-INF/jsp/common.jsp"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -9,19 +9,34 @@
 <title>申込み一覧</title>
 </head>
 <body>
-<h2>申込み科目一覧</h2>
-<a href="logout" >ログアウト</a>
+	<h2>申込み科目一覧</h2>
+	<a href="logout">ログアウト</a>
 
-		<a href="U103mousikomi">申し込み</a>
+	<a href="U103mousikomi">申し込み</a>
 
-		<c:forEach var="data" items="${sessionScope.entry}"
-						varStatus="status">
-						<tr>
-							<td><c:out value="${data.s_id}" /></td>
-							<td><c:out value="${data.sub_id}" /></td>
-							<td><c:out value="${data.sub_id2}" /></td>
-						</tr>
-					</c:forEach>
+	<c:forEach var="data" items="${sessionScope.entry}" varStatus="status">
+
+		<td><c:out value="${data.s_id}" /></td>
+		<p><c:out value="${data.sub_id}" />
+		<a href="#" onclick="document.homhom.sub_id= '${data.sub_id}';document.homhom.submit()">1</a>
+		</p>
+		<p><c:out value="${data.sub_id2}" />
+		<a href="#" onclick="document.homhom.sub_id= '${data.sub_id2}';document.homhom.submit()">1</a></p>
+
+
+
+
+
+
+
+
+
+	</c:forEach>
+
+	<form action="SubjectChange" method="get" name="homhom">
+		<input type="hidden" name="sub_id" value="">
+
+	</form>
 
 
 </body>
