@@ -11,6 +11,26 @@
 <body>
 <h2>科目登録</h2>
 
+	<form action="" method="POST">
+		<table>
+			<tr>
+				<td>科目名：</td>
+				<td><input type="text" name="subjectName"></td>
+			</tr>
+			<tr>
+				<td>科目分類名：</td>
+				<td>
+				<select name="genre">
+ 				<option value="1">IT</option>
+  				<option value="2">英語</option>
+  				<option value="3">コミュニケーション</option>
+				</select>
+				</td>
+			</tr>
+		</table>
+		<input type="submit" value="登録">
+	</form>
+
 
 </body>
 </html>
