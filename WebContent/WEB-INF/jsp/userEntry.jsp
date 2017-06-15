@@ -14,7 +14,7 @@
 <h2>科目申し込み</h2>
 <a href="logout" class="logout">ログアウト</a>
 <form action="">
-検索<input type="text">
+検索<input type="text"><br>
 
 ジャンル選択
 <select name="genre">
