@@ -13,9 +13,9 @@
 選択中の科目：(科目名表示)
 <c:out value="${sessionscope.sub}"></c:out>
 
-○<a href="SubjectRegistration">科目を変更する(科目変更画面へ)</a>
+<a href="SubjectRegistration">◯科目を変更する(科目変更画面へ)</a>
 
-○<a href="SubjectDelete">科目を削除する(科目削除画面へ)</a>
+<a href="SubjectDelete">◯科目を削除する(科目削除画面へ)</a>
 
 </body>
 </html>

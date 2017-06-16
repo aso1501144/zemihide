@@ -9,7 +9,7 @@
 <title>科目一覧</title>
 </head>
 <body>
-<<<<<<< HEAD
+
 <h2>科目一覧</h2>
 <a href="logout" >ログアウト</a>
 
@@ -22,20 +22,14 @@
     </select>
 </form>
 
-		<table border="1">
-			<tr>
-				<th>科目名</th>
-				<th>科目分類名</th>
-				<th></th>
-			</tr>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-		</table>
-=======
->>>>>>> branch 'master' of https://github.com/aso1501144/zemihide
+		<c:forEach var="data" items="${sessionScope.subject}"
+						varStatus="status">
+						<tr>
+							<td><c:out value="${data.sub_id}" /></td>
+							<td><c:out value="${data.sub_name}" /></td>
+							<td><c:out value="${data.sc_id}" /></td>
+						</tr>
+					</c:forEach>
 
 </body>
 </html>
