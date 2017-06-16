@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>申込み一覧</title>
+<title>申込み科目一覧</title>
 </head>
 <body>
 	<h2>申込み科目一覧</h2>
@@ -15,19 +15,16 @@
 	<a href="U103mousikomi">申し込み</a>
 
 	<c:forEach var="data" items="${sessionScope.entry}" varStatus="status">
-
-		<td><c:out value="${data.s_id}" /></td>
-		<p><c:out value="${data.sub_id}" />
-		<a href="#" onclick="document.homhom.sub_id= '${data.sub_id}';document.homhom.submit()">1</a>
+		<p>
+			<c:out value="${data.sub_name}" />
+			<a href="#"
+				onclick="document.homhom.sub_id.value= '${data.sub_id}';document.homhom.submit();return false;">変更</a>
 		</p>
-		<p><c:out value="${data.sub_id2}" />
-		<a href="#" onclick="document.homhom.sub_id= '${data.sub_id2}';document.homhom.submit()">1</a></p>
-
-
-
-
-
-
+		<p>
+			<c:out value="${data.sub_name2}" />
+			<a href="#"
+				onclick="document.homhom.sub_id.value= '${data.sub_id2}';document.homhom.submit();return false;">変更</a>
+		</p>
 
 
 

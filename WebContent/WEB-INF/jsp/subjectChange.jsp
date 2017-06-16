@@ -11,7 +11,7 @@
 <body>
 <h2>科目変更</h2>
 選択中の科目：(科目名表示)
-<c:out value="${sessionscope.sub}"></c:out>
+<c:out value="${sub}"></c:out>
 
 <a href="SubjectRegistration">◯科目を変更する(科目変更画面へ)</a>
 

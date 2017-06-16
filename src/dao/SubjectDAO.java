@@ -75,4 +75,33 @@ public class SubjectDAO {
 		// データが入ったlistをサーブレットに渡す
 		return list;
 	}
+
+	public String subname(String id) {
+		// ▼▼List（大きさが決まっていない配列のようなもの）、メッセージ格納用変数 準備
+		String name = null;
+		try {
+			// DB接続
+			connection();
+			// SQL文設定の準備・SQL文の実行
+			String sql = "SELECT * FROM subject WHERE sub_id = ?";
+			stmt = con.prepareStatement(sql); // sql文をプリコンパイルした状態で保持
+			stmt.setString(1, id);
+			rs = stmt.executeQuery(); // sql文を実行
+
+			rs.next();
+			name = rs.getString("sub_name");
+		} catch (Exception e) {
+			// 例外発生の場合は、例外メッセージを格納
+
+		} finally {
+			try {
+				close();
+			} catch (Exception e) {
+				// // 例外発生の場合は、例外メッセージを格納
+
+			}
+		}
+		// データが入ったlistをサーブレットに渡す
+		return name;
+	}
 }

@@ -49,7 +49,7 @@ public class EntryDAO {
 					// DB接続
 					connection();
 					// SQL文設定の準備・SQL文の実行
-					String sql = "SELECT sub1.sub_name,sub2.sub_name AS sub_name2 FROM app a LEFT OUTER JOIN subject sub1 ON a.sub_id = sub1.sub_id LEFT OUTER JOIN subject sub2 ON a.sub_id2 = sub2.sub_id WHERE a.s_id = ?";
+					String sql = "SELECT sub1.sub_id,sub2.sub_id AS sub_id2,sub1.sub_name,sub2.sub_name AS sub_name2 FROM app a LEFT OUTER JOIN subject sub1 ON a.sub_id = sub1.sub_id LEFT OUTER JOIN subject sub2 ON a.sub_id2 = sub2.sub_id WHERE a.s_id = ?";
 					stmt = con.prepareStatement(sql); // sql文をプリコンパイルした状態で保持
 					stmt.setInt(1, id);
 					rs = stmt.executeQuery(); // sql文を実行
@@ -58,8 +58,10 @@ public class EntryDAO {
 						// (Listには全員分のデータが入っている)
 						EntryBean st = new EntryBean();
 						//st.setS_id(rs.getInt("s_id"));
-						st.setSub_id(rs.getString("sub_name"));
-						st.setSub_id2(rs.getString("sub_name2"));
+						st.setSub_name(rs.getString("sub_name"));
+						st.setSub_name2(rs.getString("sub_name2"));
+						st.setSub_id(rs.getString("sub_id"));
+						st.setSub_id2(rs.getString("sub_id2"));
 
 						list.add(st);
 						//kikik
