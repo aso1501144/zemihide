@@ -75,12 +75,13 @@ public class userlogin extends HttpServlet {
 		// ArrayList<UserBean> list = new ArrayList<UserBean>();
 		// UserDAO UserDAO = new UserDAO();
 		// IDとパスワードを使ってログインユーザー情報を受け取る
-		user = userDAO.getData(s_id, pass);
+		//user = userDAO.get(s_id, pass);
+		String login = userDAO.getLogin(s_id, pass);
 
-		if (user != null) {
+		if (login != null) {
 			System.out.println("ログイン成功");
 			// 会員情報をセッションに格納
-			session.setAttribute("CommonLoginMember", user);
+			session.setAttribute("s_id", login);
 			// userBean = userDAO.getData(s_id, pass);
 			// session.setAttribute("list", userBean);
 

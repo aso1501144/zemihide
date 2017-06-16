@@ -104,4 +104,44 @@ public class SubjectDAO {
 		// データが入ったlistをサーブレットに渡す
 		return name;
 	}
+
+	public void subentry(String s_id, String sub_id) {
+		try {
+			// DB接続
+			connection();
+			// INSERT文の設定・実行
+			// INパラメータ(プレースホルダー)の使用例。サニタイジングのために使おう！
+			String sql = "INSERT INTO app VALUES(?,?,null,29);";
+			stmt = con.prepareStatement(sql);
+			stmt.setString(1, s_id);
+			stmt.setString(2, sub_id);
+			stmt.executeUpdate();
+		} catch (Exception e) {
+		} finally {
+			try {
+				close();
+			} catch (Exception e) {
+			}
+		}
+	}
+
+	public void update(String cart) {
+		try { // DB接続
+			connection();
+			// INSERT文の設定・実行
+			// INパラメータ(プレースホルダー)の使用例。サニタイジングのために使おう！
+				String sql = "UPDATE stock SET quantity = ? WHERE productid = ?";
+				stmt = con.prepareStatement(sql);
+				stmt.setString(1, cart);
+				stmt.executeUpdate();
+
+		} catch (Exception e) {
+		} finally {
+			try {
+				close();
+			} catch (Exception e) {
+			}
+		}
+		// 全員分のデータが入ったlistをサーブレットに渡す
+	}
 }

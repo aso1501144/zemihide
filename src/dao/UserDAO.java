@@ -120,4 +120,38 @@ public class UserDAO {
 		}
 		return user;
 	}
+
+	public String getLogin(int s_id,String pass) {
+
+		//ログインユーザー情報を格納
+		//UserBean user = new UserBean();
+		String logins_id = null;
+		try{
+			//DB接続
+			connection();
+			//SQL文設定の準備・SQL文の実行
+			String sql = "SELECT * FROM student WHERE s_id=? AND pass=?";
+			stmt = con.prepareStatement(sql);
+			stmt.setInt(1, s_id);
+			stmt.setString(2, pass);
+			//stmt.setInt(4, c_id);
+			rs = stmt.executeQuery();
+
+			//1件目のデータをカーソルに合わせる
+			//データがない場合はcatchに飛ぶ
+			rs.next();
+			logins_id = rs.getString("s_id");
+
+		}catch (Exception e){
+			//認証失敗
+			//user = null;
+		}finally{
+			try{
+				close();
+			} catch (Exception e){
+
+			}
+		}
+		return logins_id;
+	}
 }

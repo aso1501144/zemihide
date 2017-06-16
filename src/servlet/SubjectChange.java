@@ -36,6 +36,8 @@ public class SubjectChange extends HttpServlet {
 
 		session.setAttribute("sub", name);
 
+
+
 		//科目名を受け取るやつここに書く
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/userchange.jsp");
 		rd.forward(request, response);
