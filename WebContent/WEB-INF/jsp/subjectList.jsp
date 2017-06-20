@@ -14,11 +14,11 @@
 <a href="logout" >ログアウト</a>
 
 
-<form method="GET" action="サーブレット名">
+<form method="GET" action="M102conf">
   <select name="grade">
     <option value="1">IT</option>
   	<option value="2">英語</option>
-  	<option value="3">コミュニケーション</option>		
+  	<option value="3">コミュニケーション</option>
     </select>
 </form>
 
