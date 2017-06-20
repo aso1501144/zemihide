@@ -64,7 +64,6 @@ public class EntryDAO {
 						st.setSub_id2(rs.getString("sub_id2"));
 
 						list.add(st);
-						//kikik
 					}
 				} catch (Exception e) {
 					// 例外発生の場合は、例外メッセージを格納

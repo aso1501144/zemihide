@@ -10,7 +10,7 @@
 </head>
 <body>
 	<h2>申込み科目一覧</h2>
-	<a href="logout">ログアウト</a>
+	<a href="userlogin">ログアウト</a>
 
 	<a href="U103mousikomi">申し込み</a>
 

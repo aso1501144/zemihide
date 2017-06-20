@@ -105,7 +105,7 @@ public class SubjectDAO {
 		return name;
 	}
 
-	public void subentry(String s_id, String sub_id) {
+	/*public void subentry(String s_id, String sub_id) {
 		try {
 			// DB接続
 			connection();
@@ -123,16 +123,55 @@ public class SubjectDAO {
 			} catch (Exception e) {
 			}
 		}
-	}
-
-	public void update(String cart) {
+	}*/
+	public void subentry(String s_id, String sub_id) {
 		try { // DB接続
 			connection();
 			// INSERT文の設定・実行
 			// INパラメータ(プレースホルダー)の使用例。サニタイジングのために使おう！
-				String sql = "UPDATE stock SET quantity = ? WHERE productid = ?";
+				String sql = "UPDATE app SET sub_id = ? WHERE s_id = ?";
 				stmt = con.prepareStatement(sql);
-				stmt.setString(1, cart);
+				stmt.setString(1, sub_id);
+				stmt.setString(2, s_id);
+				stmt.executeUpdate();
+
+		} catch (Exception e) {
+		} finally {
+			try {
+				close();
+			} catch (Exception e) {
+			}
+		}
+		// 全員分のデータが入ったlistをサーブレットに渡す
+	}
+	public void subentry2(String s_id, String sub_id) {
+		try { // DB接続
+			connection();
+			// INSERT文の設定・実行
+			// INパラメータ(プレースホルダー)の使用例。サニタイジングのために使おう！
+				String sql = "UPDATE app SET sub_id2 = ? WHERE s_id = ?";
+				stmt = con.prepareStatement(sql);
+				stmt.setString(1, sub_id);
+				stmt.setString(2, s_id);
+				stmt.executeUpdate();
+
+		} catch (Exception e) {
+		} finally {
+			try {
+				close();
+			} catch (Exception e) {
+			}
+		}
+		// 全員分のデータが入ったlistをサーブレットに渡す
+	}
+	public void subentrynull(String s_id) {
+		try { // DB接続
+			connection();
+			// INSERT文の設定・実行
+			// INパラメータ(プレースホルダー)の使用例。サニタイジングのために使おう！
+				String sql = "INSERT INTO app (s_id,year) VALUES(?,29)";
+				stmt = con.prepareStatement(sql);
+				stmt.setString(1, s_id);
 				stmt.executeUpdate();
 
 		} catch (Exception e) {
