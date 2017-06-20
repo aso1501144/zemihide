@@ -18,7 +18,5 @@
 		<input type="button" onClick='history.back();' value="戻る"
 			style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
 
-		<input type="submit" value=削除（科目申込一覧に戻る） />
-	</form>
 </body>
 </html>

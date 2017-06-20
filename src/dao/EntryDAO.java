@@ -9,6 +9,7 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import model.EntryBean;
+import model.Subject;
 
 public class EntryDAO {
 	// データソース
@@ -64,7 +65,6 @@ public class EntryDAO {
 						st.setSub_id2(rs.getString("sub_id2"));
 
 						list.add(st);
-						//kikik
 					}
 				} catch (Exception e) {
 					// 例外発生の場合は、例外メッセージを格納
@@ -84,4 +84,44 @@ public class EntryDAO {
 				// データが入ったlistをサーブレットに渡す
 				return list;
 			}
+
+	/*	public ArrayList<EntryBean> getData() {
+			//▼▼List（大きさが決まっていない配列のようなもの）、メッセージ格納用変数 準備
+				ArrayList<Subject> list = new ArrayList<Subject>();
+				try {
+					// DB接続
+					connection();
+					// SQL文設定の準備・SQL文の実行
+					String sql = "SELECT * FROM subject";
+					stmt = con.prepareStatement(sql); // sql文をプリコンパイルした状態で保持
+					rs = stmt.executeQuery(); // sql文を実行
+					while (rs.next()) {
+						// 1つ分のデータをBeanに格納し、それをListに入れてjspに渡す
+						// (Listには全員分のデータが入っている)
+						Subject sj = new Subject();
+						//st.setS_id(rs.getInt("s_id"));
+						sj.setSub_id(rs.getInt("sub_id"));
+						sj.setSub_name(rs.getString("sub_name"));
+						sj.setSc_id(rs.getInt("sc_id"));
+
+						list.add(sj);
+					}
+				} catch (Exception e) {
+					// 例外発生の場合は、例外メッセージを格納
+//					CategoryBean st = new CategoryBean();
+//					st.setMessage("例外発生：" + e.getStackTrace());
+//					list.add(st);
+				} finally {
+					try {
+						close();
+					} catch (Exception e) {
+//						// 例外発生の場合は、例外メッセージを格納
+//						CategoryBean st = new CategoryBean();
+//						st.setMessage("例外発生：" + e.getStackTrace());
+//						list.add(st);
+					}
+				}
+				// データが入ったlistをサーブレットに渡す
+				return list;*/
+
 }
