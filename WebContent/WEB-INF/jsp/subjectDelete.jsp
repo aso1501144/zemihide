@@ -13,6 +13,8 @@
 
 (科目名表示)　を削除します。
 
+<a href="SubjectList">戻る</a>
+<a href="SubjectDelete">削除(科目一覧画面へ)</a>
 
 </body>
 </html>
