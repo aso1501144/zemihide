@@ -44,8 +44,6 @@ public class U103mousikomi extends HttpServlet {
 
 		session.setAttribute("subject", subjects);
 
-
-
 		RequestDispatcher dis2 = request.getRequestDispatcher("WEB-INF/jsp/userEntry.jsp");
 		dis2.forward(request, response);
 	}
