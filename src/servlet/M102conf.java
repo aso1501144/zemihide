@@ -13,8 +13,10 @@ import javax.servlet.http.HttpSession;
 
 import dao.EntryDAO;
 import dao.ManagerDAO;
+import dao.SubjectDAO;
 import dao.UserDAO;
 import model.EntryBean;
+import model.Subject;
 import model.UserBean;
 
 /**
@@ -49,7 +51,7 @@ public class M102conf extends HttpServlet {
 		HttpSession session = request.getSession();
 		// ユーザーID、パスワードの取り出し
 
-		String get =  request.getParameter("s_id");
+		String get =  request.getParameter("m_id");
 		int m_id = 0;
 		if(number(get)){
 			m_id = Integer.parseInt(get);
@@ -62,21 +64,20 @@ public class M102conf extends HttpServlet {
 
 		String pass = request.getParameter("pass");
 		ManagerDAO managerDAO = new ManagerDAO();
-		UserBean user = new UserBean();
 		String login = managerDAO.getLogin(m_id,pass);
 
 		if (login != null) {
 			System.out.println("ログイン成功");
 			// 会員情報をセッションに格納
-			session.setAttribute("s_id", login);
+			session.setAttribute("m_id", login);
 
-			EntryDAO entry = new EntryDAO();
-			ArrayList<EntryBean> entryList = new ArrayList<EntryBean>();
-			entryList = entry.getData(m_id);
+			SubjectDAO subDAO = new SubjectDAO();
+			ArrayList<Subject> subjectList = new ArrayList<Subject>();
+			subjectList = subDAO.getData();
 
-			session.setAttribute("entry", entryList);
+			session.setAttribute("subject", subjectList);
 
-			path = "WEB-INF/jsp/subjecyList.jsp";
+			path = "WEB-INF/jsp/subjectList.jsp";
 
 		} else {
 			System.out.println("ログイン失敗");
