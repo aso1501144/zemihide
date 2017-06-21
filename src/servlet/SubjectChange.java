@@ -28,12 +28,16 @@ public class SubjectChange extends HttpServlet {
 		// ユーザーID、パスワードの取り出し
 
 		String get =  request.getParameter("sub_id");
+		String num =  request.getParameter("num");
+
+
 		System.out.println(get);
 
 		SubjectDAO subject= new SubjectDAO();
 		String name = subject.subname(get);
 		System.out.println(name);
 
+		session.setAttribute("num", num);
 		session.setAttribute("sub", name);
 
 

@@ -16,7 +16,7 @@
 <br><br>
 <a href="U103mousikomi">◯科目を変更する（科目申込画面へ）</a>
 <br><br>
-<a href="Delete">◯科目を削除する</a>
+<a href="SubjectDelete">◯科目を削除する</a>
 </p>
 <input type="button" onClick='history.back();' value="戻る">
 
