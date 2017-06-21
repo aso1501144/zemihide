@@ -3,6 +3,7 @@ package servlet;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -44,6 +45,9 @@ public class SubjectDelete extends HttpServlet {
 		entryList = entry.getData(Integer.parseInt(subdel));
 
 		session.setAttribute("entry", entryList);
+
+		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/list.jsp");
+		rd.forward(request, response);
 	}
 
 	/**

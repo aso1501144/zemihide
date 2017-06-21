@@ -17,6 +17,7 @@
 		</p>
 		<input type="button" onClick='history.back();' value="戻る"
 			style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
+	</form>
 
 </body>
 </html>

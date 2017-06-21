@@ -10,7 +10,7 @@
 </head>
 <body>
 <h2>削除確認</h2>
-<form action="U103mousikomi" method="get">
+<form action="SubjectDelete" method="get">
 <p style="padding-left:2em">
 	<c:out value="${data.sub_name}" />を削除します。
 </p>
