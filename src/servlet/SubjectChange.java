@@ -28,15 +28,16 @@ public class SubjectChange extends HttpServlet {
 		// ユーザーID、パスワードの取り出し
 
 		String get =  request.getParameter("sub_id");
+		String num =  request.getParameter("num");
 		System.out.println(get);
+		System.out.println(num);
 
 		SubjectDAO subject= new SubjectDAO();
 		String name = subject.subname(get);
 		System.out.println(name);
 
 		session.setAttribute("sub", name);
-
-
+		session.setAttribute("num", num);
 
 		//科目名を受け取るやつここに書く
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/userchange.jsp");
