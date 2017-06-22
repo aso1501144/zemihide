@@ -14,11 +14,11 @@
 		<table>
 			<tr>
 				<td>教師ID:</td>
-				<td><input type="text" name="mangerid"></td>
+				<td><input type="text" name="m_id"></td>
 			</tr>
 			<tr>
 				<td>パスワード:</td>
-				<td><input type="password" name="password"></td>
+				<td><input type="password" name="pass"></td>
 			</tr>
 		</table>
 		<input type="submit" value="ログイン">

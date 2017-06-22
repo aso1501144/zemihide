@@ -8,7 +8,8 @@ import java.util.ArrayList;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import model.Subject;;
+import model.Subject;
+import model.UserBean;;
 
 public class SubjectDAO {
 	// データソース
@@ -182,5 +183,46 @@ public class SubjectDAO {
 			}
 		}
 		// 全員分のデータが入ったlistをサーブレットに渡す
+	}
+
+
+	//科目別申し込み学生リスト表示
+	//引数idは科目ID
+	//戻り値はユーザービーンにs_idとs_nameだけ入れて返す
+	public ArrayList<UserBean> entrylist(String id) {
+		ArrayList<UserBean> list = new ArrayList<UserBean>();
+		try {
+			// DB接続
+			connection();
+			// SQL文設定の準備・SQL文の実行
+			String sql = "SELECT app.s_id,s_name FROM app LEFT OUTER JOIN student ON app.s_id = student.s_id WHERE sub_id = ? OR sub_id2 = ?";
+			stmt = con.prepareStatement(sql); // sql文をプリコンパイルした状態で保持
+			stmt.setString(1, id);
+			stmt.setString(2, id);
+			rs = stmt.executeQuery(); // sql文を実行
+
+			while (rs.next()) {
+				// 1つ分のデータをBeanに格納し、それをListに入れてjspに渡す
+				// (Listには全員分のデータが入っている)
+				UserBean st = new UserBean();
+				st.setS_id(rs.getInt("s_id"));
+				st.setS_name(rs.getString("s_name"));
+				list.add(st);
+			}
+
+
+		} catch (Exception e) {
+			// 例外発生の場合は、例外メッセージを格納
+
+		} finally {
+			try {
+				close();
+			} catch (Exception e) {
+				// // 例外発生の場合は、例外メッセージを格納
+
+			}
+		}
+		// データが入ったlistをサーブレットに渡す
+		return list;
 	}
 }

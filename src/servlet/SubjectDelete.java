@@ -11,49 +11,50 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.SubjectDAO;
-import model.Subject;
+import dao.EntryDAO;
+import dao.UserDAO;
+import model.EntryBean;
 
 /**
- * Servlet implementation class U103mousikomi
+ * Servlet implementation class SubjectDelete
  */
-@WebServlet("/U103mousikomi")
-public class U103mousikomi extends HttpServlet {
+@WebServlet("/SubjectDelete")
+public class SubjectDelete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public U103mousikomi() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
 
 		HttpSession session = request.getSession();
-		SubjectDAO dao = new SubjectDAO();
-		ArrayList<Subject> subjects = new ArrayList<Subject>();
 
-		subjects = dao.getData();
+		String subdel = (String) session.getAttribute("s_id");
+		String num = (String) session.getAttribute("num");
 
-		session.setAttribute("subject", subjects);
 
-		RequestDispatcher dis2 = request.getRequestDispatcher("WEB-INF/jsp/userEntry.jsp");
-		dis2.forward(request, response);
+		UserDAO subject= new UserDAO();
+		if(num.equals("1") ){
+			subject.subdel(subdel);
+		}else{
+			subject.subdel2(subdel);
+		}
+
+		EntryDAO entry = new EntryDAO();
+		ArrayList<EntryBean> entryList = new ArrayList<EntryBean>();
+		entryList = entry.getData(Integer.parseInt(subdel));
+
+		session.setAttribute("entry", entryList);
+
+		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/list.jsp");
+		rd.forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//doGet(request, response);
+
 	}
 
 }
