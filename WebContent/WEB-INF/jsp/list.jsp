@@ -16,14 +16,19 @@
 
 	<c:forEach var="data" items="${sessionScope.entry}" varStatus="status">
 		<p>
-			<c:out value="${data.sub_name}" />
-			<a href="#"
-				onclick="document.homhom.sub_id.value='${data.sub_id}';document.homhom.num.value='1';document.homhom.submit();return false;">変更</a>
+			<c:if test="${data.sub_name != null}">
+				<c:out value="${data.sub_name}" />
+				<a href="#"
+					onclick="document.homhom.sub_id.value='${data.sub_id}';document.homhom.num.value='1';document.homhom.submit();return false;">変更</a>
+			</c:if>
 		</p>
 		<p>
-			<c:out value="${data.sub_name2}" />
-			<a href="#"
-				onclick="document.homhom.sub_id.value='${data.sub_id2}';document.homhom.num.value='2';document.homhom.submit();return false;">変更</a>
+			<c:if test="${data.sub_name2 != null}">
+				<c:out value="${data.sub_name2}" />
+				<a href="#"
+					onclick="document.homhom.sub_id.value='${data.sub_id2}';document.homhom.num.value='2';document.homhom.submit();return false;">変更</a>
+
+			</c:if>
 		</p>
 
 
@@ -31,8 +36,8 @@
 	</c:forEach>
 
 	<form action="SubjectChange" method="get" name="homhom">
-		<input type="hidden" name="sub_id" value="">
-		<input type="hidden" name="num" value="">
+		<input type="hidden" name="sub_id" value=""> <input
+			type="hidden" name="num" value="">
 	</form>
 
 

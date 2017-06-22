@@ -1,6 +1,8 @@
 package model;
 
-public class UserBean {
+import java.io.Serializable;
+
+public class UserBean implements Serializable{
 	private int s_id;
 	private String s_name;
 	private String pass;

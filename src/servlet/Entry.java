@@ -28,7 +28,7 @@ public class Entry extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		//EntryDAO entry = new EntryDAO();
+		// EntryDAO entry = new EntryDAO();
 		// ArrayList<EntryBean> eb =
 		// entry.getData(request.getParameter("student"));
 		// int size =eb.size();
@@ -60,18 +60,28 @@ public class Entry extends HttpServlet {
 		// 申し込み用
 		SubjectDAO subject = new SubjectDAO();
 
-		//初期化
+		// 初期化
 		subject.subentrynull(s_id);
 
 		// データがあるか確認
 		ArrayList<EntryBean> entryList = new ArrayList<EntryBean>();
 		entryList = entry.getData(Integer.parseInt(s_id));
 
-		if (entryList.get(0).getSub_id() == null) {
-			// 申し込み
+		if (session.getAttribute("num") == "1") {
 			subject.subentry(s_id, get);
-		} else {
+			session.setAttribute("num", null);
+		} else if (session.getAttribute("num") == "2") {
 			subject.subentry2(s_id, get);
+			session.setAttribute("num", null);
+		} else {
+			if (entryList.get(0).getSub_id() == null) {
+				// 申し込み
+				subject.subentry(s_id, get);
+				session.setAttribute("num", null);
+			} else {
+				subject.subentry2(s_id, get);
+				session.setAttribute("num", null);
+			}
 		}
 
 		entryList = entry.getData(Integer.parseInt(s_id));
