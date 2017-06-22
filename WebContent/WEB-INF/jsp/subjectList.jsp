@@ -21,15 +21,16 @@
   	<option value="3">コミュニケーション</option>
     </select>
 </form>
-
-		<c:forEach var="data" items="${sessionScope.subject}"
-						varStatus="status">
-						<tr>
-							<td><c:out value="${data.sub_id}" /></td>
-							<td><c:out value="${data.sub_name}" /></td>
-							<td><c:out value="${data.sc_id}" /></td>
-						</tr>
-					</c:forEach>
-
+<table>
+	<tr>
+	<th>科目ID</th><th>科目名</th>
+	</tr>
+	<c:forEach var="data" items="${sessionScope.subject}" varStatus="status">
+	<tr>
+	<td><c:out value="${data.sub_id}" /></td>
+	<td><c:out value="${data.sub_name}" /></td>
+	</tr>
+	</c:forEach>
+</table>
 </body>
 </html>
