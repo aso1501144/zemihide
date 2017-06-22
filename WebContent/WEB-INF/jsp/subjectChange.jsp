@@ -10,12 +10,16 @@
 </head>
 <body>
 <h2>科目変更</h2>
-選択中の科目：(科目名表示)
+選択中の科目：
 <c:out value="${sub}"></c:out>
+<br>
+<a href="#"
+	onclick="document.homhom.flg.value='1';document.homhom.submit();return false;">◯科目を変更する(科目登録画面へ)</a>
+<br>
+<a href="tinanago">◯科目を削除する(科目削除画面へ)</a>
 
-<a href="SubjectRegistration">◯科目を変更する(科目変更画面へ)</a>
-
-<a href="SubjectDelete">◯科目を削除する(科目削除画面へ)</a>
-
+<form action="SubEntry" method="get" name="homhom">
+	<input type="hidden" name="flg" value="">
+</form>
 </body>
 </html>

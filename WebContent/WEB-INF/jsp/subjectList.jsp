@@ -21,16 +21,26 @@
   	<option value="3">コミュニケーション</option>
     </select>
 </form>
-<table>
+<table border="1">
 	<tr>
-	<th>科目ID</th><th>科目名</th>
+	<th>科目ID</th><th>科目名</th><th></th>
 	</tr>
 	<c:forEach var="data" items="${sessionScope.subject}" varStatus="status">
 	<tr>
 	<td><c:out value="${data.sub_id}" /></td>
 	<td><c:out value="${data.sub_name}" /></td>
+	<td><a href="#"
+				onclick="document.homhom.sub_id.value='${data.sub_id}';document.homhom.num.value='1';document.homhom.submit();return false;">変更</a>
+		<a href="#"
+				onclick="document.homhom.sub_id.value='${data.sub_id}';document.homhom.num.value='2';document.homhom.submit();return false;">学生一覧</a>
+	</td>
 	</tr>
 	</c:forEach>
 </table>
+
+<form action="MsubChange" method="get" name="homhom">
+	<input type="hidden" name="sub_id" value="">
+	<input type="hidden" name="num" value="">
+</form>
 </body>
 </html>
