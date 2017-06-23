@@ -31,8 +31,8 @@
 
 	</c:forEach>
 
-	<a href="#" onclick="windows.print()">印刷(印刷画面へ)</a>
-	<a href="M102conf">戻る(科目一覧画面へ)</a>
+	<a href="#" onclick="window.print()">印刷(印刷画面へ)</a>
+	<a href="#" onclick='history.back();'>戻る(科目一覧画面へ)</a>
 
 </body>
 </html>
