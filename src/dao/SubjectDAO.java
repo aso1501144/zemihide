@@ -106,35 +106,24 @@ public class SubjectDAO {
 		return name;
 	}
 
-	/*public void subentry(String s_id, String sub_id) {
-		try {
-			// DB接続
-			connection();
-			// INSERT文の設定・実行
-			// INパラメータ(プレースホルダー)の使用例。サニタイジングのために使おう！
-			String sql = "INSERT INTO app VALUES(?,?,null,29);";
-			stmt = con.prepareStatement(sql);
-			stmt.setString(1, s_id);
-			stmt.setString(2, sub_id);
-			stmt.executeUpdate();
-		} catch (Exception e) {
-		} finally {
-			try {
-				close();
-			} catch (Exception e) {
-			}
-		}
-	}*/
+	/*
+	 * public void subentry(String s_id, String sub_id) { try { // DB接続
+	 * connection(); // INSERT文の設定・実行 // INパラメータ(プレースホルダー)の使用例。サニタイジングのために使おう！
+	 * String sql = "INSERT INTO app VALUES(?,?,null,29);"; stmt =
+	 * con.prepareStatement(sql); stmt.setString(1, s_id); stmt.setString(2,
+	 * sub_id); stmt.executeUpdate(); } catch (Exception e) { } finally { try {
+	 * close(); } catch (Exception e) { } } }
+	 */
 	public void subentry(String s_id, String sub_id) {
 		try { // DB接続
 			connection();
 			// INSERT文の設定・実行
 			// INパラメータ(プレースホルダー)の使用例。サニタイジングのために使おう！
-				String sql = "UPDATE app SET sub_id = ? WHERE s_id = ?";
-				stmt = con.prepareStatement(sql);
-				stmt.setString(1, sub_id);
-				stmt.setString(2, s_id);
-				stmt.executeUpdate();
+			String sql = "UPDATE app SET sub_id = ? WHERE s_id = ?";
+			stmt = con.prepareStatement(sql);
+			stmt.setString(1, sub_id);
+			stmt.setString(2, s_id);
+			stmt.executeUpdate();
 
 		} catch (Exception e) {
 		} finally {
@@ -145,16 +134,17 @@ public class SubjectDAO {
 		}
 		// 全員分のデータが入ったlistをサーブレットに渡す
 	}
+
 	public void subentry2(String s_id, String sub_id) {
 		try { // DB接続
 			connection();
 			// INSERT文の設定・実行
 			// INパラメータ(プレースホルダー)の使用例。サニタイジングのために使おう！
-				String sql = "UPDATE app SET sub_id2 = ? WHERE s_id = ?";
-				stmt = con.prepareStatement(sql);
-				stmt.setString(1, sub_id);
-				stmt.setString(2, s_id);
-				stmt.executeUpdate();
+			String sql = "UPDATE app SET sub_id2 = ? WHERE s_id = ?";
+			stmt = con.prepareStatement(sql);
+			stmt.setString(1, sub_id);
+			stmt.setString(2, s_id);
+			stmt.executeUpdate();
 
 		} catch (Exception e) {
 		} finally {
@@ -165,15 +155,16 @@ public class SubjectDAO {
 		}
 		// 全員分のデータが入ったlistをサーブレットに渡す
 	}
+
 	public void subentrynull(String s_id) {
 		try { // DB接続
 			connection();
 			// INSERT文の設定・実行
 			// INパラメータ(プレースホルダー)の使用例。サニタイジングのために使おう！
-				String sql = "INSERT INTO app (s_id,year) VALUES(?,29)";
-				stmt = con.prepareStatement(sql);
-				stmt.setString(1, s_id);
-				stmt.executeUpdate();
+			String sql = "INSERT INTO app (s_id,year) VALUES(?,29)";
+			stmt = con.prepareStatement(sql);
+			stmt.setString(1, s_id);
+			stmt.executeUpdate();
 
 		} catch (Exception e) {
 		} finally {
@@ -185,10 +176,9 @@ public class SubjectDAO {
 		// 全員分のデータが入ったlistをサーブレットに渡す
 	}
 
-
-	//科目別申し込み学生リスト表示
-	//引数idは科目ID
-	//戻り値はユーザービーンにs_idとs_nameだけ入れて返す
+	// 科目別申し込み学生リスト表示
+	// 引数idは科目ID
+	// 戻り値はユーザービーンにs_idとs_nameだけ入れて返す
 	public ArrayList<UserBean> entrylist(String id) {
 		ArrayList<UserBean> list = new ArrayList<UserBean>();
 		try {
@@ -210,7 +200,41 @@ public class SubjectDAO {
 				list.add(st);
 			}
 
+		} catch (Exception e) {
+			// 例外発生の場合は、例外メッセージを格納
 
+		} finally {
+			try {
+				close();
+			} catch (Exception e) {
+				// // 例外発生の場合は、例外メッセージを格納
+
+			}
+		}
+		// データが入ったlistをサーブレットに渡す
+		return list;
+	}
+
+	public ArrayList<Subject> genresearch(String genre) {
+		// ▼▼List（大きさが決まっていない配列のようなもの）、メッセージ格納用変数 準備
+		ArrayList<Subject> list = new ArrayList<Subject>();
+		try {
+			// DB接続
+			connection();
+			// SQL文設定の準備・SQL文の実行
+			String sql = "SELECT sub_id,sub_name FROM sc,subject WHERE sc.sc_id=subject.sc_id AND sc_name = ?";
+			stmt = con.prepareStatement(sql); // sql文をプリコンパイルした状態で保持
+			stmt.setString(1, genre);
+			rs = stmt.executeQuery(); // sql文を実行
+			while (rs.next()) {
+				// 1つ分のデータをBeanに格納し、それをListに入れてjspに渡す
+				// (Listには全員分のデータが入っている)
+				Subject st = new Subject();
+				st.setSub_id(rs.getInt("sub_id"));
+				st.setSub_name(rs.getString("sub_name"));
+				//st.setSc_id(rs.getInt("sc_id"));
+				list.add(st);
+			}
 		} catch (Exception e) {
 			// 例外発生の場合は、例外メッセージを格納
 
