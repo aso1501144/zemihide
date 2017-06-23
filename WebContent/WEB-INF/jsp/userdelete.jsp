@@ -12,7 +12,7 @@
 <h2>削除確認</h2>
 <form action="SubjectDelete" method="get">
 <p style="padding-left:2em">
-	<c:out value="${data.sub_name}" />を削除します。
+	<c:out value="${sub}" />の申し込みを削除します。
 </p>
 <input type="button" onClick='history.back();' value="戻る" style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
 

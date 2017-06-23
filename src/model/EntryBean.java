@@ -1,6 +1,8 @@
 package model;
 
-public class EntryBean {
+import java.io.Serializable;
+
+public class EntryBean implements Serializable{
 	private int s_id;
 	private String sub_id;
 	private String sub_name;
