@@ -14,7 +14,7 @@
 
 	<c:forEach var="data" items="${sessionScope.entry}" varStatus="status">
 
-		<c:if test="${data.sub_name2 == null}">
+		<c:if test="${data.sub_name2 == null or data.sub_name == null}">
 			<a href="U103mousikomi">申し込み</a>
 		</c:if>
 

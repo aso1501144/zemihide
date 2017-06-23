@@ -160,7 +160,7 @@ public class UserDAO {
 			connection();
 			// INSERT文の設定・実行
 			// INパラメータ(プレースホルダー)の使用例。サニタイジングのために使おう！
-				String sql = "UPDATE app SET sub_id = null WHERE s_id = ?";
+				String sql = "UPDATE app SET sub_id = 0 WHERE s_id = ?";
 				stmt = con.prepareStatement(sql);
 				stmt.setString(1, s_id);
 				stmt.executeUpdate();
@@ -180,7 +180,7 @@ public class UserDAO {
 			connection();
 			// INSERT文の設定・実行
 			// INパラメータ(プレースホルダー)の使用例。サニタイジングのために使おう！
-				String sql = "UPDATE app SET sub_id2 = null WHERE s_id = ?";
+				String sql = "UPDATE app SET sub_id2 = 0 WHERE s_id = ?";
 				stmt = con.prepareStatement(sql);
 				stmt.setString(1, s_id);
 				stmt.executeUpdate();
