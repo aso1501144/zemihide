@@ -12,9 +12,12 @@
 	<h2>申込み科目一覧</h2>
 	<a href="userlogin">ログアウト</a>
 
-	<a href="U103mousikomi">申し込み</a>
-
 	<c:forEach var="data" items="${sessionScope.entry}" varStatus="status">
+
+		<c:if test="${data.sub_name2 == null}">
+			<a href="U103mousikomi">申し込み</a>
+		</c:if>
+
 		<p>
 			<c:if test="${data.sub_name != null}">
 				<c:out value="${data.sub_name}" />

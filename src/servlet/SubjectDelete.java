@@ -29,20 +29,22 @@ public class SubjectDelete extends HttpServlet {
 
 		HttpSession session = request.getSession();
 
-		String subdel = (String) session.getAttribute("s_id");
+		String s_id= (String) session.getAttribute("s_id");
+		String sub_id= (String) session.getAttribute("sub");
 		String num = (String) session.getAttribute("num");
 
+		ArrayList<EntryBean> entryList = new ArrayList<EntryBean>();
+		entryList = (ArrayList<EntryBean>) session.getAttribute("entry");
 
 		UserDAO subject= new UserDAO();
-		if(num.equals("1") ){
-			subject.subdel(subdel);
-		}else{
-			subject.subdel2(subdel);
-		}
 
+		if("1".equals(num) ){
+			subject.subdel(s_id);
+		}else{
+			subject.subdel2(s_id);
+		}
 		EntryDAO entry = new EntryDAO();
-		ArrayList<EntryBean> entryList = new ArrayList<EntryBean>();
-		entryList = entry.getData(Integer.parseInt(subdel));
+		entryList = entry.getData(Integer.parseInt(s_id));
 
 		session.setAttribute("entry", entryList);
 

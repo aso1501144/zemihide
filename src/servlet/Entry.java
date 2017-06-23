@@ -49,6 +49,7 @@ public class Entry extends HttpServlet {
 		// ユーザーID、パスワードの取り出し
 
 		String s_id = (String) session.getAttribute("s_id");
+		String flg =(String) session.getAttribute("num");
 
 		String get = request.getParameter("sub_ident");
 
@@ -67,10 +68,10 @@ public class Entry extends HttpServlet {
 		ArrayList<EntryBean> entryList = new ArrayList<EntryBean>();
 		entryList = entry.getData(Integer.parseInt(s_id));
 
-		if (session.getAttribute("num") == "1") {
+		if ("1".equals(flg)) {
 			subject.subentry(s_id, get);
 			session.setAttribute("num", null);
-		} else if (session.getAttribute("num") == "2") {
+		} else if ("2".equals(flg)) {
 			subject.subentry2(s_id, get);
 			session.setAttribute("num", null);
 		} else {

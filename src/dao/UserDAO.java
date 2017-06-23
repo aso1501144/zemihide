@@ -155,7 +155,7 @@ public class UserDAO {
 		return logins_id;
 	}
 
-	public void subdel(String s_id) {
+	public Boolean subdel(String s_id) {
 		try { // DB接続
 			connection();
 			// INSERT文の設定・実行
@@ -172,10 +172,10 @@ public class UserDAO {
 			} catch (Exception e) {
 			}
 		}
-		// 全員分のデータが入ったlistをサーブレットに渡す
+		return true;
 	}
 
-	public void subdel2(String s_id) {
+	public Boolean subdel2(String s_id) {
 		try { // DB接続
 			connection();
 			// INSERT文の設定・実行
@@ -192,6 +192,6 @@ public class UserDAO {
 			} catch (Exception e) {
 			}
 		}
-		// 全員分のデータが入ったlistをサーブレットに渡す
+		return true;
 	}
 }
