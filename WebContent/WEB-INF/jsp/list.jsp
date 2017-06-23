@@ -30,9 +30,6 @@
 
 			</c:if>
 		</p>
-
-
-
 	</c:forEach>
 
 	<form action="SubjectChange" method="get" name="homhom">
