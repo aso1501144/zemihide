@@ -11,13 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.EntryDAO;
 import dao.ManagerDAO;
 import dao.SubjectDAO;
-import dao.UserDAO;
-import model.EntryBean;
 import model.Subject;
-import model.UserBean;
 
 /**
  * Servlet implementation class M102conf
@@ -38,8 +34,16 @@ public class M102conf extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		HttpSession session = request.getSession();
+		SubjectDAO dao = new SubjectDAO();
+		ArrayList<Subject> subjects = new ArrayList<Subject>();
+
+		subjects = dao.getData();
+
+		session.setAttribute("subject", subjects);
+
+		RequestDispatcher dis = request.getRequestDispatcher("WEB-INF/jsp/subjectChange.jsp");
+		dis.forward(request, response);
 	}
 
 	/**
