@@ -11,19 +11,19 @@
 <title>科目別学生一覧画面</title>
 </head>
 <body>
-	<div1>教科名：<c:out value="${sub_name}" /></div>
-
+	<div1>教科名：<c:out value="${sub_name}" /></div1>
 	<h2>科目学生一覧</h2>
 	<p>選択中の科目：<c:out value="${sub_name}" /> </p>
-	<br>
 	<p>登録学生一覧</p>
 
-	<table>
+	<table border="1" cellpadding="5" cellspacing="0">
 		<tr>
 			<th>学生ID</th>
 			<th>学生名</th>
 		</tr>
 		<tr>
+			<td>学生ID</td>
+			<td>学生名</td>
 		</tr>
 	</table>
 
