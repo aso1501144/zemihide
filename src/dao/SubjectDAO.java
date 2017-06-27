@@ -272,7 +272,7 @@ public class SubjectDAO {
 		// 全員分のデータが入ったlistをサーブレットに渡す
 	}
 	
-	public void updateSub(String subName, int genre, int sub_id) {
+	public void updataSub(String subName, int genre, int sub_id) {
 		try { // DB接続
 			connection();
 			// INSERT文の設定・実行
