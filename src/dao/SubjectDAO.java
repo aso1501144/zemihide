@@ -249,4 +249,48 @@ public class SubjectDAO {
 		// データが入ったlistをサーブレットに渡す
 		return list;
 	}
+	
+	public void insertSub(String subName, int genre) {
+		try { // DB接続
+			connection();
+			// INSERT文の設定・実行
+			// INパラメータ(プレースホルダー)の使用例。サニタイジングのために使おう！
+			String sql = "INSERT INTO subject VALUES(?,?,?)";
+			stmt = con.prepareStatement(sql);
+			stmt.setString(1, null);
+			stmt.setString(2, subName);
+			stmt.setInt(3, genre);
+			stmt.executeUpdate();
+
+		} catch (Exception e) {
+		} finally {
+			try {
+				close();
+			} catch (Exception e) {
+			}
+		}
+		// 全員分のデータが入ったlistをサーブレットに渡す
+	}
+	
+	public void updateSub(String subName, int genre, int sub_id) {
+		try { // DB接続
+			connection();
+			// INSERT文の設定・実行
+			// INパラメータ(プレースホルダー)の使用例。サニタイジングのために使おう！
+			String sql = "UPDATE subject SET sub_id = ?, sub_Name = ?,sc_id = ?, WHERE sub_id = ?";
+			stmt = con.prepareStatement(sql);
+			stmt.setInt(1, sub_id);
+			stmt.setString(2, subName);
+			stmt.setInt(3, genre);
+			stmt.executeUpdate();
+
+		} catch (Exception e) {
+		} finally {
+			try {
+				close();
+			} catch (Exception e) {
+			}
+		}
+		// 全員分のデータが入ったlistをサーブレットに渡す
+	}
 }

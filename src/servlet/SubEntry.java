@@ -58,7 +58,7 @@ public class SubEntry extends HttpServlet {
 		int flg = 0;
 		String subName = request.getParameter("subjectName");
 		int genre = Integer.parseInt(request.getParameter("genre"));
-		String  sub_id = request.getParameter("sub_id");
+		int sub_id = Integer.parseInt(request.getParameter("sub_id"));
 		flg = Integer.parseInt(request.getParameter("flg"));
 
 		SubjectDAO subDAO = new SubjectDAO();
