@@ -37,18 +37,18 @@ public class MsubChange extends HttpServlet {
 			throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
-		// ユーザーID、パスワードの取り出し
 
-		String get = request.getParameter("sub_id");
-		int num = Integer.parseInt(request.getParameter("num"));
+		String get =  request.getParameter("sub_id");
+		int num =  Integer.parseInt(request.getParameter("num"));
 		System.out.println(get);
 		System.out.println(num);
 
-		SubjectDAO subject = new SubjectDAO();
+		SubjectDAO subject= new SubjectDAO();
 		String name = subject.subname(get);
 		System.out.println(name);
 
-		session.setAttribute("sub", name);
+		request.setAttribute("sub", name);
+		request.setAttribute("sub_id", get);
 
 		if (num == 1) {
 			// 科目名を受け取るやつここに書く
