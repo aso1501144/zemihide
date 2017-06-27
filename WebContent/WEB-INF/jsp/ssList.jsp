@@ -21,21 +21,14 @@
 			<th>学生ID</th>
 			<th>学生名</th>
 		</tr>
+		<c:forEach var="data" items="${sessionScope.sslist}" varStatus="status">
 		<tr>
-			<td>学生ID</td>
-			<td>学生名</td>
+			<td><c:out value="${data.s_id}" /></td>
+			<td><c:out value="${data.s_name}" /></td>
 		</tr>
+		</c:forEach>
 	</table>
-
-	<c:forEach var="data" items="${sessionScope.sslist}" varStatus="status">
-		<p>
-				<c:out value="${data.s_id}" />
-		</p>
-		<p>
-				<c:out value="${data.s_name}" />
-		</p>
-
-	</c:forEach>
+	<br>
 	
 	<a href="#" onclick="window.print()">印刷(印刷画面へ)</a>
 	<a href="#" onclick='history.back();'>戻る(科目一覧画面へ)</a>
