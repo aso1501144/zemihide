@@ -28,12 +28,6 @@ public class Entry extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// EntryDAO entry = new EntryDAO();
-		// ArrayList<EntryBean> eb =
-		// entry.getData(request.getParameter("student"));
-		// int size =eb.size();
-		// request.setAttribute("length", size);
-		// request.setAttribute("product", eb);
 		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/entry.jsp");
 		rd.forward(request, response);
 	}

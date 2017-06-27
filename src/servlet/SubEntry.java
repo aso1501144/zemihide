@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.SubjectDAO;
+import model.Subject;
 
 /**
  * Servlet implementation class SubEntry
@@ -32,17 +34,16 @@ public class SubEntry extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		HttpSession session = request.getSession();
 		String get =  request.getParameter("sub_id");
 		int num =  Integer.parseInt(request.getParameter("flg"));
-		System.out.println(get);
-		System.out.println(num);
 
 		SubjectDAO subject= new SubjectDAO();
 		String name = subject.subname(get);
-		System.out.println(name);
 
 		request.setAttribute("sub", name);
 		request.setAttribute("sub_id", get);
+		request.setAttribute("sub_id", num);
 		//科目名を受け取るやつここに書く
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/subjectRegistration.jsp");
 		rd.forward(request, response);
@@ -55,18 +56,25 @@ public class SubEntry extends HttpServlet {
 
 		HttpSession session = request.getSession();
 
-		int flg = 0;
+		String flg = "";
 		String subName = request.getParameter("subjectName");
 		int genre = Integer.parseInt(request.getParameter("genre"));
-		int sub_id = Integer.parseInt(request.getParameter("sub_id"));
-		flg = Integer.parseInt(request.getParameter("flg"));
+		//int sub_id = Integer.parseInt(request.getParameter("sub_id"));
+		flg = request.getParameter("flg");
 
 		SubjectDAO subDAO = new SubjectDAO();
-		if(flg == 0) {
+		if(flg == "0") {
 			subDAO.insertSub(subName,genre);
 		} else {
+			int sub_id = Integer.parseInt(request.getParameter("sub_id"));
 			subDAO.updataSub(subName,genre,sub_id);
 		}
+
+		ArrayList<Subject> subjectList = new ArrayList<Subject>();
+		subjectList = subDAO.getData();
+
+		session.setAttribute("subject", subjectList);
+
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/subjectList.jsp");
 		rd.forward(request, response);
 

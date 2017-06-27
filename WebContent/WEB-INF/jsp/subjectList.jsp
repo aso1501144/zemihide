@@ -14,6 +14,11 @@
 	<br><br>
 	<a href="M102conf">ログアウト</a>
 
+	<a href="#" onclick="document.ins.submit();return false;">科目を追加する</a>
+	<form action="SubEntry" method="get" name="ins">
+		<input type="hidden" name="flg" value="0">
+	</form>
+
 	<form action="genresearch" name="kamoku" method="post">
 		<select name="genre">
 			<option value="">ジャンル選択</option>
