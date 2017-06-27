@@ -12,7 +12,7 @@
 	<h2>科目一覧</h2>
 	ようこそ<c:out value="${m_name}"></c:out>さん
 	<br><br>
-	<a href="logout">ログアウト</a>
+	<a href="M102conf">ログアウト</a>
 
 	<form action="genresearch" name="kamoku" method="post">
 		<select name="genre">

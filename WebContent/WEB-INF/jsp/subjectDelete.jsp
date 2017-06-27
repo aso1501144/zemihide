@@ -6,13 +6,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>削除確認画面</title>
+<title>科目変更画面</title>
 </head>
 <body>
 <h2>削除確認</h2>
-<form action="SubjectDelete" method="post">
+<form action="MSubDelete" method="post">
 <p style="padding-left:2em">
-	<c:out value="${sub}" />の申し込みを削除します。
+	<c:out value="${sub_name}" />の科目を削除します。
 </p>
 <input type="button" onClick='history.back();' value="戻る" style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
 

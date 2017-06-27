@@ -36,7 +36,10 @@ public class M102conf extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/subjectList.jsp");
+		HttpSession session = request.getSession(true);
+		session.invalidate();
+
+		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/managerLogin.jsp");
 		rd.forward(request, response);
 	}
 
@@ -54,7 +57,7 @@ public class M102conf extends HttpServlet {
 		if(number(get)){
 			m_id = Integer.parseInt(get);
 		}else{
-			request.setAttribute("errorMassage", "会員IDまたはパスワードが違います。");
+			request.setAttribute("errorMassage", "教師IDまたはパスワードが違います。");
 			RequestDispatcher dis2 = request.getRequestDispatcher("WEB-INF/jsp/managerLogin.jsp");
 			dis2.forward(request, response);
 			return;
@@ -78,7 +81,7 @@ public class M102conf extends HttpServlet {
 			path = "WEB-INF/jsp/subjectList.jsp";
 
 		} else {
-			request.setAttribute("errorMassage", "会員IDまたはパスワードが違います。");
+			request.setAttribute("errorMassage", "教師IDまたはパスワードが違います。");
 			path = "WEB-INF/jsp/managerLogin.jsp";
 		}
 

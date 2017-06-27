@@ -51,9 +51,12 @@ public class MsubChange extends HttpServlet {
 		request.setAttribute("sub_id", get);
 
 		if (num == 1) {
+			session.setAttribute("sub_name", name);
+			session.setAttribute("sub_id", get);
 			// 科目名を受け取るやつここに書く
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/subjectChange.jsp");
 			rd.forward(request, response);
+
 		} else {
 			ArrayList<UserBean> list = new ArrayList<UserBean>();
 			SubjectDAO dao = new SubjectDAO();
@@ -61,6 +64,7 @@ public class MsubChange extends HttpServlet {
 
 			session.setAttribute("sslist", list);
 			session.setAttribute("sub_name", name);
+			session.setAttribute("sub_id", get);
 
 			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/ssList.jsp");
 			rd.forward(request, response);
@@ -74,7 +78,7 @@ public class MsubChange extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		//doGet(request, response);
 	}
 
 }

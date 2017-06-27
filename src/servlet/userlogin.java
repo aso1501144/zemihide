@@ -37,6 +37,9 @@ public class userlogin extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		HttpSession session = request.getSession(true);
+		session.invalidate();
+
 		RequestDispatcher dis3 = request.getRequestDispatcher("/WEB-INF/jsp/userLogin.jsp");
 		dis3.forward(request, response);
 	}
