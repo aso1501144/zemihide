@@ -9,7 +9,6 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import model.EntryBean;
-import model.Subject;
 
 public class EntryDAO {
 	// データソース

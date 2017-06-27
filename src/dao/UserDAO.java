@@ -155,32 +155,44 @@ public class UserDAO {
 		return logins_id;
 	}
 
-	public void subdel(String s_id) {
-		try { // DB接続
-			connection();
-			// INSERT文の設定・実行
-			// INパラメータ(プレースホルダー)の使用例。サニタイジングのために使おう！
-				String sql = "UPDATE app SET sub_id = null WHERE s_id = ?";
-				stmt = con.prepareStatement(sql);
-				stmt.setString(1, s_id);
-				stmt.executeUpdate();
+	public String getSname(int s_id) {
 
-		} catch (Exception e) {
-		} finally {
-			try {
+		//ログインユーザー情報を格納
+		//UserBean user = new UserBean();
+		String logins_id = null;
+		try{
+			//DB接続
+			connection();
+			//SQL文設定の準備・SQL文の実行
+			String sql = "SELECT s_name FROM student WHERE s_id=?";
+			stmt = con.prepareStatement(sql);
+			stmt.setInt(1, s_id);
+			rs = stmt.executeQuery();
+
+			//1件目のデータをカーソルに合わせる
+			//データがない場合はcatchに飛ぶ
+			rs.next();
+			logins_id = rs.getString("s_name");
+
+		}catch (Exception e){
+			//認証失敗
+			//user = null;
+		}finally{
+			try{
 				close();
-			} catch (Exception e) {
+			} catch (Exception e){
+
 			}
 		}
-		// 全員分のデータが入ったlistをサーブレットに渡す
+		return logins_id;
 	}
 
-	public void subdel2(String s_id) {
+	public Boolean subdel(String s_id) {
 		try { // DB接続
 			connection();
 			// INSERT文の設定・実行
 			// INパラメータ(プレースホルダー)の使用例。サニタイジングのために使おう！
-				String sql = "UPDATE app SET sub_id2 = null WHERE s_id = ?";
+				String sql = "UPDATE app SET sub_id = 0 WHERE s_id = ?";
 				stmt = con.prepareStatement(sql);
 				stmt.setString(1, s_id);
 				stmt.executeUpdate();
@@ -192,6 +204,26 @@ public class UserDAO {
 			} catch (Exception e) {
 			}
 		}
-		// 全員分のデータが入ったlistをサーブレットに渡す
+		return true;
+	}
+
+	public Boolean subdel2(String s_id) {
+		try { // DB接続
+			connection();
+			// INSERT文の設定・実行
+			// INパラメータ(プレースホルダー)の使用例。サニタイジングのために使おう！
+				String sql = "UPDATE app SET sub_id2 = 0 WHERE s_id = ?";
+				stmt = con.prepareStatement(sql);
+				stmt.setString(1, s_id);
+				stmt.executeUpdate();
+
+		} catch (Exception e) {
+		} finally {
+			try {
+				close();
+			} catch (Exception e) {
+			}
+		}
+		return true;
 	}
 }

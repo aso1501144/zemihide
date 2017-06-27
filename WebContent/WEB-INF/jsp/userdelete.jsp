@@ -10,7 +10,7 @@
 </head>
 <body>
 <h2>削除確認</h2>
-<form action="SubjectDelete" method="get">
+<form action="SubjectDelete" method="post">
 <p style="padding-left:2em">
 	<c:out value="${sub}" />の申し込みを削除します。
 </p>

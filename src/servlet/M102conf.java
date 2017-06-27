@@ -34,6 +34,7 @@ public class M102conf extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+<<<<<<< HEAD
 		HttpSession session = request.getSession();
 		SubjectDAO dao = new SubjectDAO();
 		ArrayList<Subject> subjects = new ArrayList<Subject>();
@@ -44,6 +45,15 @@ public class M102conf extends HttpServlet {
 
 		RequestDispatcher dis = request.getRequestDispatcher("WEB-INF/jsp/subjectChange.jsp");
 		dis.forward(request, response);
+=======
+		// TODO Auto-generated method stub
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		HttpSession session = request.getSession(true);
+		session.invalidate();
+
+		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/managerLogin.jsp");
+		rd.forward(request, response);
+>>>>>>> branch 'master' of https://github.com/aso1501144/zemihide
 	}
 
 	/**
@@ -60,7 +70,7 @@ public class M102conf extends HttpServlet {
 		if(number(get)){
 			m_id = Integer.parseInt(get);
 		}else{
-			System.out.println("ログイン失敗あああ");
+			request.setAttribute("errorMassage", "教師IDまたはパスワードが違います。");
 			RequestDispatcher dis2 = request.getRequestDispatcher("WEB-INF/jsp/managerLogin.jsp");
 			dis2.forward(request, response);
 			return;
@@ -71,9 +81,9 @@ public class M102conf extends HttpServlet {
 		String login = managerDAO.getLogin(m_id,pass);
 
 		if (login != null) {
-			System.out.println("ログイン成功");
 			// 会員情報をセッションに格納
 			session.setAttribute("m_id", login);
+			session.setAttribute("m_name", managerDAO.getMname(m_id));
 
 			SubjectDAO subDAO = new SubjectDAO();
 			ArrayList<Subject> subjectList = new ArrayList<Subject>();
@@ -84,8 +94,7 @@ public class M102conf extends HttpServlet {
 			path = "WEB-INF/jsp/subjectList.jsp";
 
 		} else {
-			System.out.println("ログイン失敗");
-			request.setAttribute("errorMassage", "会員IDまたはパスワードが違います。");
+			request.setAttribute("errorMassage", "教師IDまたはパスワードが違います。");
 			path = "WEB-INF/jsp/managerLogin.jsp";
 		}
 

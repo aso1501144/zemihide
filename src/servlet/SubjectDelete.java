@@ -27,26 +27,7 @@ public class SubjectDelete extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		HttpSession session = request.getSession();
-
-		String subdel = (String) session.getAttribute("s_id");
-		String num = (String) session.getAttribute("num");
-
-
-		UserDAO subject= new UserDAO();
-		if(num.equals("1") ){
-			subject.subdel(subdel);
-		}else{
-			subject.subdel2(subdel);
-		}
-
-		EntryDAO entry = new EntryDAO();
-		ArrayList<EntryBean> entryList = new ArrayList<EntryBean>();
-		entryList = entry.getData(Integer.parseInt(subdel));
-
-		session.setAttribute("entry", entryList);
-
-		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/list.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/userdelete.jsp");
 		rd.forward(request, response);
 	}
 
@@ -54,7 +35,29 @@ public class SubjectDelete extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
 
+		String s_id= (String) session.getAttribute("s_id");
+		String sub_id= (String) session.getAttribute("sub");
+		String num = (String) session.getAttribute("num");
+
+		ArrayList<EntryBean> entryList = new ArrayList<EntryBean>();
+		entryList = (ArrayList<EntryBean>) session.getAttribute("entry");
+
+		UserDAO subject= new UserDAO();
+
+		if("1".equals(num) ){
+			subject.subdel(s_id);
+		}else{
+			subject.subdel2(s_id);
+		}
+		EntryDAO entry = new EntryDAO();
+		entryList = entry.getData(Integer.parseInt(s_id));
+
+		session.setAttribute("entry", entryList);
+
+		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/list.jsp");
+		rd.forward(request, response);
 	}
 
 }

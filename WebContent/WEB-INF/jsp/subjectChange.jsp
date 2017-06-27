@@ -14,11 +14,12 @@
 <c:out value="${sub}"></c:out>
 <br>
 <a href="#"
-	onclick="document.homhom.flg.value='1';document.homhom.submit();return false;">◯科目を変更する(科目登録画面へ)</a>
+	onclick="document.homhom.flg.value='1';document.homhom.sub_id.value='${sub_id}';document.homhom.submit();return false;">◯科目を変更する(科目登録画面へ)</a>
 <br>
-<a href="tinanago">◯科目を削除する(科目削除画面へ)</a>
+<a href="MSubDelete">◯科目を削除する(科目削除画面へ)</a>
 
 <form action="SubEntry" method="get" name="homhom">
+	<input type="hidden" name="sub_id" value="">
 	<input type="hidden" name="flg" value="">
 </form>
 </body>

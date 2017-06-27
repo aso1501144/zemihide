@@ -39,7 +39,9 @@ public class tinanago extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		//doGet(request, response);
+		RequestDispatcher dis = request.getRequestDispatcher("/WEB-INF/jsp/userdelete.jsp");
+		dis.forward(request, response);
 	}
 
 }

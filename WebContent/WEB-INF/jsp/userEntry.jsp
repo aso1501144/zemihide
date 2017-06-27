@@ -15,13 +15,14 @@
 	<h2>科目申し込み</h2>
 	申し込む科目を選択してください
 	<a href="logout" class="logout">ログアウト</a>
-	<form name="test">
-		<select name="genre" onChange="genreselect()">
+	<form action="genresearch" name="kamoku">
+		<select name="genre">
 			<option value="">ジャンル選択</option>
-			<option value="english">英語</option>
+			<option value="eng">英語</option>
 			<option value="it">IT</option>
 			<option value="com">コミュニケーション</option>
-		</select>
+		</select> <input type="submit" value="検索">
+		<input type="submit" value="クリア" name="genre">
 	</form>
 
 	<c:forEach var="data" items="${sessionScope.subject}"
