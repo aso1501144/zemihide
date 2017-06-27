@@ -67,6 +67,8 @@ public class SubEntry extends HttpServlet {
 		} else {
 			subDAO.updataSub(subName,genre,sub_id);
 		}
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/subjectList.jsp");
+		rd.forward(request, response);
 
 	}
 
