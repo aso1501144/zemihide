@@ -14,9 +14,9 @@
 <p style="padding-left:2em">
 	<c:out value="${sub_name}" />の科目を削除します。
 </p>
-<input type="button" onClick='history.back();' value="戻る" style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
+<input type="button" onClick='history.back();' value="戻る" >
 
-<input type="submit" value=削除（科目申込一覧に戻る）/>
+<input type="submit" value="削除（科目申込一覧に戻る）"/>
 </form>
 </body>
 </html>
