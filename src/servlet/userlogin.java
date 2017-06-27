@@ -52,38 +52,27 @@ public class userlogin extends HttpServlet {
 		HttpSession session = request.getSession();
 		// ユーザーID、パスワードの取り出し
 
-		String get =  request.getParameter("s_id");
+		String get = request.getParameter("s_id");
 		int s_id = 0;
-		if(number(get)){
+		if (number(get)) {
 			s_id = Integer.parseInt(get);
-		}else{
+		} else {
 			System.out.println("ログイン失敗あああ");
 			RequestDispatcher dis2 = request.getRequestDispatcher("WEB-INF/jsp/userLogin.jsp");
 			dis2.forward(request, response);
 			return;
 		}
 
-
-		//int s_id = Integer.parseInt(request.getParameter("s_id"));
-
-		// String s_name = request.getParameter("s_name");
 		String pass = request.getParameter("pass");
-		// int c_id = Integer.parseInt(request.getParameter("c_id"));
 		UserDAO userDAO = new UserDAO();
 		UserBean user = new UserBean();
-		// UserBean userBean = new UserBean();
-		// ArrayList<UserBean> list = new ArrayList<UserBean>();
-		// UserDAO UserDAO = new UserDAO();
-		// IDとパスワードを使ってログインユーザー情報を受け取る
-		//user = userDAO.get(s_id, pass);
+
 		String login = userDAO.getLogin(s_id, pass);
 
 		if (login != null) {
 			System.out.println("ログイン成功");
 			// 会員情報をセッションに格納
 			session.setAttribute("s_id", login);
-			// userBean = userDAO.getData(s_id, pass);
-			// session.setAttribute("list", userBean);
 
 			EntryDAO entry = new EntryDAO();
 			ArrayList<EntryBean> entryList = new ArrayList<EntryBean>();
@@ -104,14 +93,14 @@ public class userlogin extends HttpServlet {
 
 	}
 
-	public boolean number(String num){
-		try{
+	public boolean number(String num) {
+		try {
 			Integer.parseInt(num);
 			return true;
-		}catch (NumberFormatException e) {
-				// TODO: handle exception
-				return false;
-			}
+		} catch (NumberFormatException e) {
+			// TODO: handle exception
+			return false;
+		}
 
 	}
 }
