@@ -11,31 +11,24 @@
 <title>科目別学生一覧画面</title>
 </head>
 <body>
-	<div1>教科名：<c:out value="${sub_name}" /></div>
-
+	<div1>教科名：<c:out value="${sub_name}" /></div1>
 	<h2>科目学生一覧</h2>
 	<p>選択中の科目：<c:out value="${sub_name}" /> </p>
-	<br>
 	<p>登録学生一覧</p>
 
-	<table>
+	<table border="1" cellpadding="5" cellspacing="0">
 		<tr>
 			<th>学生ID</th>
 			<th>学生名</th>
 		</tr>
+		<c:forEach var="data" items="${sessionScope.sslist}" varStatus="status">
 		<tr>
+			<td><c:out value="${data.s_id}" /></td>
+			<td><c:out value="${data.s_name}" /></td>
 		</tr>
+		</c:forEach>
 	</table>
-
-	<c:forEach var="data" items="${sessionScope.sslist}" varStatus="status">
-		<p>
-				<c:out value="${data.s_id}" />
-		</p>
-		<p>
-				<c:out value="${data.s_name}" />
-		</p>
-
-	</c:forEach>
+	<br>
 	
 	<a href="#" onclick="window.print()">印刷(印刷画面へ)</a>
 	<a href="#" onclick='history.back();'>戻る(科目一覧画面へ)</a>
