@@ -14,6 +14,43 @@
 	<br><br>
 	<a href="M102conf">ログアウト</a>
 
+<<<<<<< HEAD
+	<form action="genresearch" name="kamoku" method="post">
+		<select name="genre">
+			<option value="">ジャンル選択</option>
+			<option value="eng">英語</option>
+			<option value="it">IT</option>
+			<option value="com">コミュニケーション</option>
+		</select> <input type="submit" value="検索"> <input type="submit"
+			value="クリア" name="genre">
+=======
+	<a href="#" onclick="document.ins.submit();return false;">科目を追加する</a>
+	<form action="SubEntry" method="get" name="ins">
+		<input type="hidden" name="flg" value="0">
+>>>>>>> branch 'master' of https://github.com/aso1501144/zemihide
+	</form>
+
+<<<<<<< HEAD
+	<table border="1">
+		<tr>
+			<th>科目ID</th>
+			<th>科目名</th>
+			<th></th>
+		</tr>
+		<c:forEach var="data" items="${sessionScope.subject}"
+			varStatus="status">
+			<tr>
+				<td><c:out value="${data.sub_id}" /></td>
+				<td><c:out value="${data.sub_name}" /></td>
+				<td><a href="#"
+					onclick="document.homhom.sub_id.value='${data.sub_id}';document.homhom.num.value='1';document.homhom.submit();return false;">変更</a>
+					<a href="#"
+					onclick="document.homhom.sub_id.value='${data.sub_id}';document.homhom.num.value='2';document.homhom.submit();return false;">学生一覧</a>
+				</td>
+			</tr>
+		</c:forEach>
+	</table>
+=======
 	<form action="genresearch" name="kamoku" method="post">
 		<select name="genre">
 			<option value="">ジャンル選択</option>
@@ -23,7 +60,10 @@
 		</select> <input type="submit" value="検索"> <input type="submit"
 			value="クリア" name="genre">
 	</form>
+>>>>>>> branch 'master' of https://github.com/aso1501144/zemihide
 
+<<<<<<< HEAD
+=======
 	<table border="1">
 		<tr>
 			<th>科目ID</th>
@@ -44,6 +84,7 @@
 		</c:forEach>
 	</table>
 
+>>>>>>> branch 'master' of https://github.com/aso1501144/zemihide
 	<form action="MsubChange" method="get" name="homhom">
 		<input type="hidden" name="sub_id" value=""> <input
 			type="hidden" name="num" value="">
