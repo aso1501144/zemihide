@@ -11,7 +11,7 @@
 <body>
 <h2>科目登録</h2>
 
-	<form action="" method="POST">
+	<form action="SubEntry" method="POST">
 		<table>
 			<tr>
 				<td>科目名：</td>
@@ -28,6 +28,8 @@
 				</td>
 			</tr>
 		</table>
+		<input type="hidden" name="sub_id" value="${sub_id}">
+		<input type="hidden" name="flg" value="${flg}">
 		<input type="submit" value="登録">
 	</form>
 
