@@ -9,8 +9,9 @@
 <title>科目一覧</title>
 </head>
 <body>
-
 	<h2>科目一覧</h2>
+	ようこそ<c:out value="${m_name}"></c:out>さん
+	<br><br>
 	<a href="logout">ログアウト</a>
 
 	<form action="genresearch" name="kamoku" method="post">

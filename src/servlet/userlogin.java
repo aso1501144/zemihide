@@ -14,7 +14,6 @@ import javax.servlet.http.HttpSession;
 import dao.EntryDAO;
 import dao.UserDAO;
 import model.EntryBean;
-import model.UserBean;
 
 /**
  * Servlet implementation class userlogin
@@ -57,7 +56,7 @@ public class userlogin extends HttpServlet {
 		if (number(get)) {
 			s_id = Integer.parseInt(get);
 		} else {
-			System.out.println("ログイン失敗あああ");
+			request.setAttribute("errorMassage", "学生IDまたはパスワードが違います。");
 			RequestDispatcher dis2 = request.getRequestDispatcher("WEB-INF/jsp/userLogin.jsp");
 			dis2.forward(request, response);
 			return;
@@ -65,14 +64,14 @@ public class userlogin extends HttpServlet {
 
 		String pass = request.getParameter("pass");
 		UserDAO userDAO = new UserDAO();
-		UserBean user = new UserBean();
+		//UserBean user = new UserBean();
 
 		String login = userDAO.getLogin(s_id, pass);
 
 		if (login != null) {
-			System.out.println("ログイン成功");
 			// 会員情報をセッションに格納
 			session.setAttribute("s_id", login);
+			session.setAttribute("s_name", userDAO.getSname(s_id));
 
 			EntryDAO entry = new EntryDAO();
 			ArrayList<EntryBean> entryList = new ArrayList<EntryBean>();
@@ -84,7 +83,7 @@ public class userlogin extends HttpServlet {
 
 		} else {
 			System.out.println("ログイン失敗");
-			request.setAttribute("errorMassage", "会員IDまたはパスワードが違います。");
+			request.setAttribute("errorMassage", "学生IDまたはパスワードが違います。");
 			path = "WEB-INF/jsp/userLogin.jsp";
 		}
 

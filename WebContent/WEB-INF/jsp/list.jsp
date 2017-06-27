@@ -10,6 +10,8 @@
 </head>
 <body>
 	<h2>申込み科目一覧</h2>
+	ようこそ<c:out value="${s_name}"></c:out>さん
+	<br><br>
 	<a href="userlogin">ログアウト</a>
 
 	<c:forEach var="data" items="${sessionScope.entry}" varStatus="status">
