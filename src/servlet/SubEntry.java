@@ -53,8 +53,6 @@ public class SubEntry extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		HttpSession session = request.getSession();
-
 		int flg = 0;
 		String subName = request.getParameter("subjectName");
 		int genre = Integer.parseInt(request.getParameter("genre"));
