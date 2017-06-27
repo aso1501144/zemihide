@@ -53,6 +53,9 @@ public class M102conf extends HttpServlet {
 
 		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/managerLogin.jsp");
 		rd.forward(request, response);
+<<<<<<< HEAD
+>>>>>>> branch 'master' of https://github.com/aso1501144/zemihide
+=======
 >>>>>>> branch 'master' of https://github.com/aso1501144/zemihide
 	}
 
