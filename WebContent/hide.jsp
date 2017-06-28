@@ -4,7 +4,6 @@
 <html>
 <head>
 <link rel="stylesheet" href="bootstrap-3.3.7/css/bootstrap.css">
-<link href="css/tekkadan.css" rel="stylesheet" type="text/css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>よ　う　こ　そ</title>
 </head>

@@ -12,16 +12,20 @@
 <script type="text/javascript" src="/zemihide/js/javascript.js"></script>
 <title>ユーザー用ログイン</title>
 </head>
-<body>
-
+<body id="user">
 	<form action="<%=request.getContextPath()%>/userlogin" method="POST"
 		onsubmit="return check(this)">
-		<h2>ログイン（ユーザー）</h2>
+	<div class="parent">
+  	<div class="inner">
+    <div class="tablecell">
 
 		<c:if test="${errorMassage != null }">
 			<c:out value="${errorMassage}"></c:out>
 		</c:if>
 		<table class="formstyle">
+			<tr>
+			<td colspan="2">ログイン（ユーザー）</td>
+			</tr>
 			<tr>
 				<td>学生ID:</td>
 				<td><input type="text" name="s_id" style="ime-mode: disabled"></td>
@@ -30,8 +34,13 @@
 				<td>パスワード:</td>
 				<td><input type="password" name="pass"></td>
 			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" value="ログイン" onclick="check()" class="hvr-float"></td>
+			</tr>
 		</table>
-		<input type="submit" value="ログイン" onclick="check()" class="hvr-float">
+	</div>
+	</div>
+	</div>
 	</form>
 </body>
 </html>
