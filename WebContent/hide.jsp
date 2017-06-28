@@ -8,12 +8,12 @@
 <title>よ　う　こ　そ</title>
 </head>
 <body>
-<h1>ほんとひで</h1>
+<h1>ユーザー選択</h1>
 
-
-<form action="gamen"><input type="submit" value="ユーザー" class="hvr-icon-wobble-vertical"></form>
+<div style="text-align:center;">
+<form action="gamen" style="margin-bottom:10px;"><input type="submit" value="ユーザー"></form>
 <form action="gamen" method="post"><input type="submit" value="管理者"></form>
-
+</div>
 
 </body>
 </html>
