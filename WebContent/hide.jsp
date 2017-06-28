@@ -8,7 +8,7 @@
 <title>よ　う　こ　そ</title>
 </head>
 <body>
-<h1>ユーザー選択</h1>
+<h1>ひで</h1>
 
 <div style="text-align:center;">
 <form action="gamen" style="margin-bottom:10px;"><input type="submit" value="ユーザー"></form>
