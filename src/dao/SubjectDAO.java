@@ -255,11 +255,11 @@ public class SubjectDAO {
 			connection();
 			// INSERT文の設定・実行
 			// INパラメータ(プレースホルダー)の使用例。サニタイジングのために使おう！
-			String sql = "INSERT INTO subject VALUES(?,?,?)";
+			String sql = "INSERT INTO subject VALUES(null,?,?)";
 			stmt = con.prepareStatement(sql);
-			stmt.setString(1, null);
-			stmt.setString(2, subName);
-			stmt.setInt(3, genre);
+			//stmt.setString(1, null);
+			stmt.setString(1, subName);
+			stmt.setInt(2, genre);
 			stmt.executeUpdate();
 
 		} catch (Exception e) {
@@ -277,11 +277,11 @@ public class SubjectDAO {
 			connection();
 			// INSERT文の設定・実行
 			// INパラメータ(プレースホルダー)の使用例。サニタイジングのために使おう！
-			String sql = "UPDATE subject SET sub_id = ?, sub_Name = ?,sc_id = ?, WHERE sub_id = ?";
+			String sql = "UPDATE subject SET sub_Name = ?,sc_id = ? WHERE sub_id = ?";
 			stmt = con.prepareStatement(sql);
-			stmt.setInt(1, sub_id);
-			stmt.setString(2, subName);
-			stmt.setInt(3, genre);
+			stmt.setString(1, subName);
+			stmt.setInt(2, genre);
+			stmt.setInt(3, sub_id);
 			stmt.executeUpdate();
 
 		} catch (Exception e) {

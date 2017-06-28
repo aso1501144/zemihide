@@ -43,7 +43,7 @@ public class SubEntry extends HttpServlet {
 
 		request.setAttribute("sub", name);
 		request.setAttribute("sub_id", get);
-		request.setAttribute("sub_id", num);
+		request.setAttribute("flg", num);
 		//科目名を受け取るやつここに書く
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/subjectRegistration.jsp");
 		rd.forward(request, response);
@@ -64,7 +64,7 @@ public class SubEntry extends HttpServlet {
 		flg = request.getParameter("flg");
 
 		SubjectDAO subDAO = new SubjectDAO();
-		if(flg == "0") {
+		if(("0").equals(flg)) {
 			subDAO.insertSub(subName,genre);
 		} else {
 			int sub_id = Integer.parseInt(request.getParameter("sub_id"));
