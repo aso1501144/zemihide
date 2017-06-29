@@ -7,12 +7,13 @@
 <head>
 <link href="css/hover.css" rel="stylesheet" media="all">
 <link href="css/style.css" rel="stylesheet" media="all">
+<link href="css/tekkadan.css" rel="stylesheet" media="all">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript" src="/zemihide/js/javascript.js"></script>
 <title>ユーザー用ログイン</title>
 </head>
 <body>
-
+	<div id = "main">
 	<form action="<%=request.getContextPath()%>/userlogin" method="POST"
 		onsubmit="return check(this)">
 		<h2>ログイン（ユーザー）</h2>
@@ -32,5 +33,6 @@
 		</table>
 		<input type="submit" value="ログイン" onclick="check()" class="hvr-float">
 	</form>
+	</div>
 </body>
 </html>

@@ -5,13 +5,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<link href="css/list.css" rel="stylesheet">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>申込み科目一覧</title>
 </head>
 <body>
 	<h2>申込み科目一覧</h2>
-	ようこそ<c:out value="${s_name}"></c:out>さん
-	<br><br>
+	ようこそ
+	<c:out value="${s_name}"></c:out>
+	さん
+	<br>
+	<br>
 	<a href="userlogin">ログアウト</a>
 
 	<c:forEach var="data" items="${sessionScope.entry}" varStatus="status">
@@ -20,22 +24,30 @@
 			<a href="U103mousikomi">申し込み</a>
 		</c:if>
 
-		<p>
-			<c:if test="${data.sub_name != null}">
-				<c:out value="${data.sub_name}" />
-				<a href="#"
-					onclick="document.homhom.sub_id.value='${data.sub_id}';document.homhom.num.value='1';document.homhom.submit();return false;">変更</a>
-			</c:if>
-		</p>
-		<p>
-			<c:if test="${data.sub_name2 != null}">
-				<c:out value="${data.sub_name2}" />
-				<a href="#"
-					onclick="document.homhom.sub_id.value='${data.sub_id2}';document.homhom.num.value='2';document.homhom.submit();return false;">変更</a>
+		<table class ="sub">
+			<tbody>
+				<tr>
+					<th>科目名</th>
+					<th>      </th>
+				</tr>
+				<tr>
+					<c:if test="${data.sub_name != null}">
+						<td><c:out value="${data.sub_name}" /></td>
+						<td><a href="#"
+							onclick="document.homhom.sub_id.value='${data.sub_id}';document.homhom.num.value='1';document.homhom.submit();return false;">変更</a></td>
+					</c:if>
+				</tr>
+				<c:if test="${data.sub_name2 != null}">
+					<td><c:out value="${data.sub_name2}" /></td>
+					<td><a href="#"
+						onclick="document.homhom.sub_id.value='${data.sub_id2}';document.homhom.num.value='2';document.homhom.submit();return false;">変更</a></td>
 
-			</c:if>
-		</p>
+				</c:if>
+			</tbody>
+		</table>
 	</c:forEach>
+
+
 
 	<form action="SubjectChange" method="get" name="homhom">
 		<input type="hidden" name="sub_id" value=""> <input

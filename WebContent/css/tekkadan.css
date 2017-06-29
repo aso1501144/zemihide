@@ -15,7 +15,7 @@ h1 {
 
 #main {
 	background-image: url('../img/taso.jpg');
-	height: 600px;
+	background-size:contain;
 }
 
 #mid {
