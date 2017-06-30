@@ -14,7 +14,7 @@
 	ようこそ
 	　<c:out value="${s_name}"></c:out>
 	　さん
-	<div style="padding-left:380px">
+	<div style="padding-left:320px">
 		<a href="userlogin">ログアウト</a>
 	</div>
 	<br>

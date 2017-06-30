@@ -5,7 +5,6 @@
 <html>
 <head>
 <link href="css/hover.css" rel="stylesheet" media="all">
-<link href="css/style.css" rel="stylesheet" media="all">
 <link href="css/tekkadan.css" rel="stylesheet" media="all">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript" src="/zemihide/js/javascript.js"></script>
@@ -17,7 +16,7 @@
 	<div class="parent">
   	<div class="inner">
     <div class="tablecell">
-    
+
 	<c:if test="${errorMassage != null }">
 		<c:out value="${errorMassage}"></c:out>
 	</c:if>
