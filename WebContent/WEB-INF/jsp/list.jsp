@@ -12,9 +12,9 @@
 <body>
 	<h2>申込み科目一覧</h2>
 	ようこそ
-	<c:out value="${s_name}"></c:out>
-	さん
-	<div style="text-align: center">
+	　<c:out value="${s_name}"></c:out>
+	　さん
+	<div style="padding-left:430px">
 		<a href="userlogin">ログアウト</a>
 	</div>
 	<br>
@@ -23,7 +23,7 @@
 	<c:forEach var="data" items="${sessionScope.entry}" varStatus="status">
 
 
-		<table class="sub">
+		<table class="stu">
 			<tbody>
 				<tr>
 					<th>科目名</th>

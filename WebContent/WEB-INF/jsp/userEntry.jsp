@@ -15,7 +15,7 @@
 
 	<h2>科目申し込み</h2>
 	申し込む科目を選択してください
-	<div style="text-align: center">
+	<div style="padding-left:430px">
 		<a href="userlogin">ログアウト</a>
 	</div>
 	<form action="genresearch" name="kamoku">
@@ -28,7 +28,7 @@
 			value="クリア" name="genre">
 	</form>
 
-	<table class="sub">
+	<table class="stu">
 		<tbody>
 			<tr>
 				<th>科目名</th>
@@ -53,7 +53,7 @@
 	<form action="Entry" method="post" name="homhom">
 		<input type="hidden" name="sub_ident" value="">
 	</form>
-
+	<br>
 	<input type="button" onClick='history.back();' value="戻る">
 </body>
 </html>
