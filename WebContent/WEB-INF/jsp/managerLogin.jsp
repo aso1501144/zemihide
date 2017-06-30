@@ -20,7 +20,7 @@
 	<c:if test="${errorMassage != null }">
 		<c:out value="${errorMassage}"></c:out>
 	</c:if>
-			<table class="formstyle">
+			<table class="table-design">
 			<tr>
 			<td colspan="2">ログイン（管理者）</td>
 			</tr>
