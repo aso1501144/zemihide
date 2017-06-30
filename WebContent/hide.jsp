@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>よ　う　こ　そ</title>
 </head>
-<body>
+<body id = "home">
 <h1>ゼミひで</h1>
 
 <div style="text-align:center;">
