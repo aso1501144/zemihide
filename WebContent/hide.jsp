@@ -9,7 +9,8 @@
 <title>よ　う　こ　そ</title>
 </head>
 <body id="home">
-<h1>ゼミひで</h1>
+<br>
+<h1 style="color:#FFFF00">ゼミひで</h1>
 
 <div style="text-align:center;">
 <form action="gamen" style="margin-bottom:10px;"><button class="button" type="submit" style="width:200px;" >ユーザー</button></form>
