@@ -4,7 +4,7 @@
 
 function check(loginForm) {
 	if (loginForm.s_id.value == '') {
-		return doError('会員IDは入力必須項目です。');
+		return doError('学生IDは入力必須項目です。');
 	}
 	if (loginForm.pass.value == '') {
 		return doError('パスワードは入力必須項目です。');

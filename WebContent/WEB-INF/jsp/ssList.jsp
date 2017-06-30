@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="css/list.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="css/print.css" media="print">
 <link rel="stylesheet" type="text/css" href="css/screen.css" media="screen">
 <title>科目別学生一覧画面</title>
@@ -16,7 +17,7 @@
 	<p>選択中の科目：<c:out value="${sub_name}" /> </p>
 	<p>登録学生一覧</p>
 
-	<table border="1" cellpadding="5" cellspacing="0">
+	<table class ="stu">
 		<tr>
 			<th>学生ID</th>
 			<th>学生名</th>
@@ -29,9 +30,9 @@
 		</c:forEach>
 	</table>
 	<br>
-	
-	<a href="#" onclick="window.print()">印刷(印刷画面へ)</a>
-	<a href="#" onclick='history.back();'>戻る(科目一覧画面へ)</a>
+
+	<input type="button" onclick="window.print()"  value="印刷(印刷画面へ)">
+	<input type="button" onclick='history.back();' value="戻る(科目一覧画面へ)">
 
 </body>
 </html>

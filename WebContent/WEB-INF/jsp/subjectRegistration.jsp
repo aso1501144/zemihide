@@ -28,9 +28,11 @@
 				</td>
 			</tr>
 		</table>
+		<br>
 		<input type="hidden" name="sub_id" value="${sub_id}">
 		<input type="hidden" name="flg" value="${flg}">
 		<input type="submit" value="登録">
+		<input type="button" onClick='history.back();' value="戻る">
 	</form>
 
 

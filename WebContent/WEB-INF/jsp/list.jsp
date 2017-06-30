@@ -48,6 +48,7 @@
 					<c:if test="${data.sub_name2 == null or data.sub_name == null}">
 						<td><a href="U103mousikomi">申し込み</a></td>
 					</c:if>
+				</tr>
 			</tbody>
 		</table>
 	</c:forEach>
