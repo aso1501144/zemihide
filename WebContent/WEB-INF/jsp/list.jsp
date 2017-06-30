@@ -18,11 +18,7 @@
 		<a href="userlogin">ログアウト</a>
 	</div>
 	<br>
-
-
 	<c:forEach var="data" items="${sessionScope.entry}" varStatus="status">
-
-
 		<table class="sub">
 			<tbody>
 				<tr>
