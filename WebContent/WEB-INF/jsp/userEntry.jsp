@@ -15,7 +15,9 @@
 
 	<h2>科目申し込み</h2>
 	申し込む科目を選択してください
-	<a href="logout" class="logout">ログアウト</a>
+	<div style="text-align: center">
+		<a href="userlogin">ログアウト</a>
+	</div>
 	<form action="genresearch" name="kamoku">
 		<select name="genre">
 			<option value="">ジャンル選択</option>

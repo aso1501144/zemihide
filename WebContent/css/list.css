@@ -25,4 +25,14 @@
 	border-bottom: 1px dotted #999;
 	border-left: 1px solid #ccc;
 }
+
+a {
+	color: #0000ff;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #ff0000;
+	text-decoration: underline;
+}
 }

@@ -14,21 +14,20 @@
 	ようこそ
 	<c:out value="${s_name}"></c:out>
 	さん
+	<div style="text-align: center">
+		<a href="userlogin">ログアウト</a>
+	</div>
 	<br>
-	<br>
-	<a href="userlogin">ログアウト</a>
+
 
 	<c:forEach var="data" items="${sessionScope.entry}" varStatus="status">
 
-		<c:if test="${data.sub_name2 == null or data.sub_name == null}">
-			<a href="U103mousikomi">申し込み</a>
-		</c:if>
 
-		<table class ="sub">
+		<table class="sub">
 			<tbody>
 				<tr>
 					<th>科目名</th>
-					<th>      </th>
+					<th></th>
 				</tr>
 				<tr>
 					<c:if test="${data.sub_name != null}">
@@ -37,12 +36,18 @@
 							onclick="document.homhom.sub_id.value='${data.sub_id}';document.homhom.num.value='1';document.homhom.submit();return false;">変更</a></td>
 					</c:if>
 				</tr>
-				<c:if test="${data.sub_name2 != null}">
-					<td><c:out value="${data.sub_name2}" /></td>
-					<td><a href="#"
-						onclick="document.homhom.sub_id.value='${data.sub_id2}';document.homhom.num.value='2';document.homhom.submit();return false;">変更</a></td>
-
-				</c:if>
+				<tr>
+					<c:if test="${data.sub_name2 != null}">
+						<td><c:out value="${data.sub_name2}" /></td>
+						<td><a href="#"
+							onclick="document.homhom.sub_id.value='${data.sub_id2}';document.homhom.num.value='2';document.homhom.submit();return false;">変更</a></td>
+					</c:if>
+				</tr>
+				<tr>
+					<td></td>
+					<c:if test="${data.sub_name2 == null or data.sub_name == null}">
+						<td><a href="U103mousikomi">申し込み</a></td>
+					</c:if>
 			</tbody>
 		</table>
 	</c:forEach>
